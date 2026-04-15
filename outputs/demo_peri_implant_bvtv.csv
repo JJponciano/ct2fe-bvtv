@@ -1,0 +1,2 @@
+centerline_start_x_mm,centerline_start_y_mm,centerline_start_z_mm,centerline_end_x_mm,centerline_end_y_mm,centerline_end_z_mm,implant_diameter_mm,shell_thickness_mm,height_mm,sample_voxels,bvtv,threshold
+-12.7902,-71.5878,-31.8359,-12.7902,-71.5878,-13.9062,4,1,17.9297,96,0.541666667,300

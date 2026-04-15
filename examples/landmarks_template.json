@@ -1,0 +1,15 @@
+{
+  "description": "Template for rigid mesh-to-CT registration. Coordinates must be in the units used by the FE mesh and CT/world coordinate system.",
+  "mesh": [
+    [0.0, 0.0, 0.0],
+    [1.0, 0.0, 0.0],
+    [0.0, 1.0, 0.0],
+    [0.0, 0.0, 1.0]
+  ],
+  "ct": [
+    [0.0, 0.0, 0.0],
+    [1.0, 0.0, 0.0],
+    [0.0, 1.0, 0.0],
+    [0.0, 0.0, 1.0]
+  ]
+}

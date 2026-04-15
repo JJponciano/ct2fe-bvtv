@@ -1,0 +1,8 @@
+name: ct2fe-bvtv
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - numpy>=1.24
+  - scikit-image>=0.20
+  - matplotlib>=3.7

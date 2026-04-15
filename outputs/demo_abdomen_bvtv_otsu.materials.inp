@@ -1,0 +1,2690 @@
+** Element-wise BV/TV-derived elastic material assignments
+** Include after nodes/elements in an Abaqus input file.
+*Elset, elset=BONE_1
+1
+*Material, name=BONE_1
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_1, material=BONE_1
+,
+*Elset, elset=BONE_2
+2
+*Material, name=BONE_2
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_2, material=BONE_2
+,
+*Elset, elset=BONE_3
+3
+*Material, name=BONE_3
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_3, material=BONE_3
+,
+*Elset, elset=BONE_4
+4
+*Material, name=BONE_4
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_4, material=BONE_4
+,
+*Elset, elset=BONE_5
+5
+*Material, name=BONE_5
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_5, material=BONE_5
+,
+*Elset, elset=BONE_6
+6
+*Material, name=BONE_6
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_6, material=BONE_6
+,
+*Elset, elset=BONE_7
+7
+*Material, name=BONE_7
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_7, material=BONE_7
+,
+*Elset, elset=BONE_8
+8
+*Material, name=BONE_8
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_8, material=BONE_8
+,
+*Elset, elset=BONE_9
+9
+*Material, name=BONE_9
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_9, material=BONE_9
+,
+*Elset, elset=BONE_10
+10
+*Material, name=BONE_10
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_10, material=BONE_10
+,
+*Elset, elset=BONE_11
+11
+*Material, name=BONE_11
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_11, material=BONE_11
+,
+*Elset, elset=BONE_12
+12
+*Material, name=BONE_12
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_12, material=BONE_12
+,
+*Elset, elset=BONE_13
+13
+*Material, name=BONE_13
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_13, material=BONE_13
+,
+*Elset, elset=BONE_14
+14
+*Material, name=BONE_14
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_14, material=BONE_14
+,
+*Elset, elset=BONE_15
+15
+*Material, name=BONE_15
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_15, material=BONE_15
+,
+*Elset, elset=BONE_16
+16
+*Material, name=BONE_16
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_16, material=BONE_16
+,
+*Elset, elset=BONE_17
+17
+*Material, name=BONE_17
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_17, material=BONE_17
+,
+*Elset, elset=BONE_18
+18
+*Material, name=BONE_18
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_18, material=BONE_18
+,
+*Elset, elset=BONE_19
+19
+*Material, name=BONE_19
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_19, material=BONE_19
+,
+*Elset, elset=BONE_20
+20
+*Material, name=BONE_20
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_20, material=BONE_20
+,
+*Elset, elset=BONE_21
+21
+*Material, name=BONE_21
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_21, material=BONE_21
+,
+*Elset, elset=BONE_22
+22
+*Material, name=BONE_22
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_22, material=BONE_22
+,
+*Elset, elset=BONE_23
+23
+*Material, name=BONE_23
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_23, material=BONE_23
+,
+*Elset, elset=BONE_24
+24
+*Material, name=BONE_24
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_24, material=BONE_24
+,
+*Elset, elset=BONE_25
+25
+*Material, name=BONE_25
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_25, material=BONE_25
+,
+*Elset, elset=BONE_26
+26
+*Material, name=BONE_26
+*Elastic
+7999.31922, 0.246
+*Solid Section, elset=BONE_26, material=BONE_26
+,
+*Elset, elset=BONE_27
+27
+*Material, name=BONE_27
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_27, material=BONE_27
+,
+*Elset, elset=BONE_28
+28
+*Material, name=BONE_28
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_28, material=BONE_28
+,
+*Elset, elset=BONE_29
+29
+*Material, name=BONE_29
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_29, material=BONE_29
+,
+*Elset, elset=BONE_30
+30
+*Material, name=BONE_30
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_30, material=BONE_30
+,
+*Elset, elset=BONE_31
+31
+*Material, name=BONE_31
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_31, material=BONE_31
+,
+*Elset, elset=BONE_32
+32
+*Material, name=BONE_32
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_32, material=BONE_32
+,
+*Elset, elset=BONE_33
+33
+*Material, name=BONE_33
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_33, material=BONE_33
+,
+*Elset, elset=BONE_34
+34
+*Material, name=BONE_34
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_34, material=BONE_34
+,
+*Elset, elset=BONE_35
+35
+*Material, name=BONE_35
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_35, material=BONE_35
+,
+*Elset, elset=BONE_36
+36
+*Material, name=BONE_36
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_36, material=BONE_36
+,
+*Elset, elset=BONE_37
+37
+*Material, name=BONE_37
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_37, material=BONE_37
+,
+*Elset, elset=BONE_38
+38
+*Material, name=BONE_38
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_38, material=BONE_38
+,
+*Elset, elset=BONE_39
+39
+*Material, name=BONE_39
+*Elastic
+7137.22426, 0.246
+*Solid Section, elset=BONE_39, material=BONE_39
+,
+*Elset, elset=BONE_40
+40
+*Material, name=BONE_40
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_40, material=BONE_40
+,
+*Elset, elset=BONE_41
+41
+*Material, name=BONE_41
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_41, material=BONE_41
+,
+*Elset, elset=BONE_42
+42
+*Material, name=BONE_42
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_42, material=BONE_42
+,
+*Elset, elset=BONE_43
+43
+*Material, name=BONE_43
+*Elastic
+1423.89368, 0.246
+*Solid Section, elset=BONE_43, material=BONE_43
+,
+*Elset, elset=BONE_44
+44
+*Material, name=BONE_44
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_44, material=BONE_44
+,
+*Elset, elset=BONE_45
+45
+*Material, name=BONE_45
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_45, material=BONE_45
+,
+*Elset, elset=BONE_46
+46
+*Material, name=BONE_46
+*Elastic
+96.915248, 0.246
+*Solid Section, elset=BONE_46, material=BONE_46
+,
+*Elset, elset=BONE_47
+47
+*Material, name=BONE_47
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_47, material=BONE_47
+,
+*Elset, elset=BONE_48
+48
+*Material, name=BONE_48
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_48, material=BONE_48
+,
+*Elset, elset=BONE_49
+49
+*Material, name=BONE_49
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_49, material=BONE_49
+,
+*Elset, elset=BONE_50
+50
+*Material, name=BONE_50
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_50, material=BONE_50
+,
+*Elset, elset=BONE_51
+51
+*Material, name=BONE_51
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_51, material=BONE_51
+,
+*Elset, elset=BONE_52
+52
+*Material, name=BONE_52
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_52, material=BONE_52
+,
+*Elset, elset=BONE_53
+53
+*Material, name=BONE_53
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_53, material=BONE_53
+,
+*Elset, elset=BONE_54
+54
+*Material, name=BONE_54
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_54, material=BONE_54
+,
+*Elset, elset=BONE_55
+55
+*Material, name=BONE_55
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_55, material=BONE_55
+,
+*Elset, elset=BONE_56
+56
+*Material, name=BONE_56
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_56, material=BONE_56
+,
+*Elset, elset=BONE_57
+57
+*Material, name=BONE_57
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_57, material=BONE_57
+,
+*Elset, elset=BONE_58
+58
+*Material, name=BONE_58
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_58, material=BONE_58
+,
+*Elset, elset=BONE_59
+59
+*Material, name=BONE_59
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_59, material=BONE_59
+,
+*Elset, elset=BONE_60
+60
+*Material, name=BONE_60
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_60, material=BONE_60
+,
+*Elset, elset=BONE_61
+61
+*Material, name=BONE_61
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_61, material=BONE_61
+,
+*Elset, elset=BONE_62
+62
+*Material, name=BONE_62
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_62, material=BONE_62
+,
+*Elset, elset=BONE_63
+63
+*Material, name=BONE_63
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_63, material=BONE_63
+,
+*Elset, elset=BONE_64
+64
+*Material, name=BONE_64
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_64, material=BONE_64
+,
+*Elset, elset=BONE_65
+65
+*Material, name=BONE_65
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_65, material=BONE_65
+,
+*Elset, elset=BONE_66
+66
+*Material, name=BONE_66
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_66, material=BONE_66
+,
+*Elset, elset=BONE_67
+67
+*Material, name=BONE_67
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_67, material=BONE_67
+,
+*Elset, elset=BONE_68
+68
+*Material, name=BONE_68
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_68, material=BONE_68
+,
+*Elset, elset=BONE_69
+69
+*Material, name=BONE_69
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_69, material=BONE_69
+,
+*Elset, elset=BONE_70
+70
+*Material, name=BONE_70
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_70, material=BONE_70
+,
+*Elset, elset=BONE_71
+71
+*Material, name=BONE_71
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_71, material=BONE_71
+,
+*Elset, elset=BONE_72
+72
+*Material, name=BONE_72
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_72, material=BONE_72
+,
+*Elset, elset=BONE_73
+73
+*Material, name=BONE_73
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_73, material=BONE_73
+,
+*Elset, elset=BONE_74
+74
+*Material, name=BONE_74
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_74, material=BONE_74
+,
+*Elset, elset=BONE_75
+75
+*Material, name=BONE_75
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_75, material=BONE_75
+,
+*Elset, elset=BONE_76
+76
+*Material, name=BONE_76
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_76, material=BONE_76
+,
+*Elset, elset=BONE_77
+77
+*Material, name=BONE_77
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_77, material=BONE_77
+,
+*Elset, elset=BONE_78
+78
+*Material, name=BONE_78
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_78, material=BONE_78
+,
+*Elset, elset=BONE_79
+79
+*Material, name=BONE_79
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_79, material=BONE_79
+,
+*Elset, elset=BONE_80
+80
+*Material, name=BONE_80
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_80, material=BONE_80
+,
+*Elset, elset=BONE_81
+81
+*Material, name=BONE_81
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_81, material=BONE_81
+,
+*Elset, elset=BONE_82
+82
+*Material, name=BONE_82
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_82, material=BONE_82
+,
+*Elset, elset=BONE_83
+83
+*Material, name=BONE_83
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_83, material=BONE_83
+,
+*Elset, elset=BONE_84
+84
+*Material, name=BONE_84
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_84, material=BONE_84
+,
+*Elset, elset=BONE_85
+85
+*Material, name=BONE_85
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_85, material=BONE_85
+,
+*Elset, elset=BONE_86
+86
+*Material, name=BONE_86
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_86, material=BONE_86
+,
+*Elset, elset=BONE_87
+87
+*Material, name=BONE_87
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_87, material=BONE_87
+,
+*Elset, elset=BONE_88
+88
+*Material, name=BONE_88
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_88, material=BONE_88
+,
+*Elset, elset=BONE_89
+89
+*Material, name=BONE_89
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_89, material=BONE_89
+,
+*Elset, elset=BONE_90
+90
+*Material, name=BONE_90
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_90, material=BONE_90
+,
+*Elset, elset=BONE_91
+91
+*Material, name=BONE_91
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_91, material=BONE_91
+,
+*Elset, elset=BONE_92
+92
+*Material, name=BONE_92
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_92, material=BONE_92
+,
+*Elset, elset=BONE_93
+93
+*Material, name=BONE_93
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_93, material=BONE_93
+,
+*Elset, elset=BONE_94
+94
+*Material, name=BONE_94
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_94, material=BONE_94
+,
+*Elset, elset=BONE_95
+95
+*Material, name=BONE_95
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_95, material=BONE_95
+,
+*Elset, elset=BONE_96
+96
+*Material, name=BONE_96
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_96, material=BONE_96
+,
+*Elset, elset=BONE_97
+97
+*Material, name=BONE_97
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_97, material=BONE_97
+,
+*Elset, elset=BONE_98
+98
+*Material, name=BONE_98
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_98, material=BONE_98
+,
+*Elset, elset=BONE_99
+99
+*Material, name=BONE_99
+*Elastic
+258.00054, 0.246
+*Solid Section, elset=BONE_99, material=BONE_99
+,
+*Elset, elset=BONE_100
+100
+*Material, name=BONE_100
+*Elastic
+5844.09677, 0.246
+*Solid Section, elset=BONE_100, material=BONE_100
+,
+*Elset, elset=BONE_101
+101
+*Material, name=BONE_101
+*Elastic
+4319.8678, 0.246
+*Solid Section, elset=BONE_101, material=BONE_101
+,
+*Elset, elset=BONE_102
+102
+*Material, name=BONE_102
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_102, material=BONE_102
+,
+*Elset, elset=BONE_103
+103
+*Material, name=BONE_103
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_103, material=BONE_103
+,
+*Elset, elset=BONE_104
+104
+*Material, name=BONE_104
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_104, material=BONE_104
+,
+*Elset, elset=BONE_105
+105
+*Material, name=BONE_105
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_105, material=BONE_105
+,
+*Elset, elset=BONE_106
+106
+*Material, name=BONE_106
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_106, material=BONE_106
+,
+*Elset, elset=BONE_107
+107
+*Material, name=BONE_107
+*Elastic
+6661.51381, 0.246
+*Solid Section, elset=BONE_107, material=BONE_107
+,
+*Elset, elset=BONE_108
+108
+*Material, name=BONE_108
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_108, material=BONE_108
+,
+*Elset, elset=BONE_109
+109
+*Material, name=BONE_109
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_109, material=BONE_109
+,
+*Elset, elset=BONE_110
+110
+*Material, name=BONE_110
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_110, material=BONE_110
+,
+*Elset, elset=BONE_111
+111
+*Material, name=BONE_111
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_111, material=BONE_111
+,
+*Elset, elset=BONE_112
+112
+*Material, name=BONE_112
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_112, material=BONE_112
+,
+*Elset, elset=BONE_113
+113
+*Material, name=BONE_113
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_113, material=BONE_113
+,
+*Elset, elset=BONE_114
+114
+*Material, name=BONE_114
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_114, material=BONE_114
+,
+*Elset, elset=BONE_115
+115
+*Material, name=BONE_115
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_115, material=BONE_115
+,
+*Elset, elset=BONE_116
+116
+*Material, name=BONE_116
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_116, material=BONE_116
+,
+*Elset, elset=BONE_117
+117
+*Material, name=BONE_117
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_117, material=BONE_117
+,
+*Elset, elset=BONE_118
+118
+*Material, name=BONE_118
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_118, material=BONE_118
+,
+*Elset, elset=BONE_119
+119
+*Material, name=BONE_119
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_119, material=BONE_119
+,
+*Elset, elset=BONE_120
+120
+*Material, name=BONE_120
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_120, material=BONE_120
+,
+*Elset, elset=BONE_121
+121
+*Material, name=BONE_121
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_121, material=BONE_121
+,
+*Elset, elset=BONE_122
+122
+*Material, name=BONE_122
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_122, material=BONE_122
+,
+*Elset, elset=BONE_123
+123
+*Material, name=BONE_123
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_123, material=BONE_123
+,
+*Elset, elset=BONE_124
+124
+*Material, name=BONE_124
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_124, material=BONE_124
+,
+*Elset, elset=BONE_125
+125
+*Material, name=BONE_125
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_125, material=BONE_125
+,
+*Elset, elset=BONE_126
+126
+*Material, name=BONE_126
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_126, material=BONE_126
+,
+*Elset, elset=BONE_127
+127
+*Material, name=BONE_127
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_127, material=BONE_127
+,
+*Elset, elset=BONE_128
+128
+*Material, name=BONE_128
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_128, material=BONE_128
+,
+*Elset, elset=BONE_129
+129
+*Material, name=BONE_129
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_129, material=BONE_129
+,
+*Elset, elset=BONE_130
+130
+*Material, name=BONE_130
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_130, material=BONE_130
+,
+*Elset, elset=BONE_131
+131
+*Material, name=BONE_131
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_131, material=BONE_131
+,
+*Elset, elset=BONE_132
+132
+*Material, name=BONE_132
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_132, material=BONE_132
+,
+*Elset, elset=BONE_133
+133
+*Material, name=BONE_133
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_133, material=BONE_133
+,
+*Elset, elset=BONE_134
+134
+*Material, name=BONE_134
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_134, material=BONE_134
+,
+*Elset, elset=BONE_135
+135
+*Material, name=BONE_135
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_135, material=BONE_135
+,
+*Elset, elset=BONE_136
+136
+*Material, name=BONE_136
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_136, material=BONE_136
+,
+*Elset, elset=BONE_137
+137
+*Material, name=BONE_137
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_137, material=BONE_137
+,
+*Elset, elset=BONE_138
+138
+*Material, name=BONE_138
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_138, material=BONE_138
+,
+*Elset, elset=BONE_139
+139
+*Material, name=BONE_139
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_139, material=BONE_139
+,
+*Elset, elset=BONE_140
+140
+*Material, name=BONE_140
+*Elastic
+432.595792, 0.246
+*Solid Section, elset=BONE_140, material=BONE_140
+,
+*Elset, elset=BONE_141
+141
+*Material, name=BONE_141
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_141, material=BONE_141
+,
+*Elset, elset=BONE_142
+142
+*Material, name=BONE_142
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_142, material=BONE_142
+,
+*Elset, elset=BONE_143
+143
+*Material, name=BONE_143
+*Elastic
+8193.8269, 0.246
+*Solid Section, elset=BONE_143, material=BONE_143
+,
+*Elset, elset=BONE_144
+144
+*Material, name=BONE_144
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_144, material=BONE_144
+,
+*Elset, elset=BONE_145
+145
+*Material, name=BONE_145
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_145, material=BONE_145
+,
+*Elset, elset=BONE_146
+146
+*Material, name=BONE_146
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_146, material=BONE_146
+,
+*Elset, elset=BONE_147
+147
+*Material, name=BONE_147
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_147, material=BONE_147
+,
+*Elset, elset=BONE_148
+148
+*Material, name=BONE_148
+*Elastic
+7078.40845, 0.246
+*Solid Section, elset=BONE_148, material=BONE_148
+,
+*Elset, elset=BONE_149
+149
+*Material, name=BONE_149
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_149, material=BONE_149
+,
+*Elset, elset=BONE_150
+150
+*Material, name=BONE_150
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_150, material=BONE_150
+,
+*Elset, elset=BONE_151
+151
+*Material, name=BONE_151
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_151, material=BONE_151
+,
+*Elset, elset=BONE_152
+152
+*Material, name=BONE_152
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_152, material=BONE_152
+,
+*Elset, elset=BONE_153
+153
+*Material, name=BONE_153
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_153, material=BONE_153
+,
+*Elset, elset=BONE_154
+154
+*Material, name=BONE_154
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_154, material=BONE_154
+,
+*Elset, elset=BONE_155
+155
+*Material, name=BONE_155
+*Elastic
+8354.71193, 0.246
+*Solid Section, elset=BONE_155, material=BONE_155
+,
+*Elset, elset=BONE_156
+156
+*Material, name=BONE_156
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_156, material=BONE_156
+,
+*Elset, elset=BONE_157
+157
+*Material, name=BONE_157
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_157, material=BONE_157
+,
+*Elset, elset=BONE_158
+158
+*Material, name=BONE_158
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_158, material=BONE_158
+,
+*Elset, elset=BONE_159
+159
+*Material, name=BONE_159
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_159, material=BONE_159
+,
+*Elset, elset=BONE_160
+160
+*Material, name=BONE_160
+*Elastic
+232.854115, 0.246
+*Solid Section, elset=BONE_160, material=BONE_160
+,
+*Elset, elset=BONE_161
+161
+*Material, name=BONE_161
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_161, material=BONE_161
+,
+*Elset, elset=BONE_162
+162
+*Material, name=BONE_162
+*Elastic
+1640.86524, 0.246
+*Solid Section, elset=BONE_162, material=BONE_162
+,
+*Elset, elset=BONE_163
+163
+*Material, name=BONE_163
+*Elastic
+3055.22368, 0.246
+*Solid Section, elset=BONE_163, material=BONE_163
+,
+*Elset, elset=BONE_164
+164
+*Material, name=BONE_164
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_164, material=BONE_164
+,
+*Elset, elset=BONE_165
+165
+*Material, name=BONE_165
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_165, material=BONE_165
+,
+*Elset, elset=BONE_166
+166
+*Material, name=BONE_166
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_166, material=BONE_166
+,
+*Elset, elset=BONE_167
+167
+*Material, name=BONE_167
+*Elastic
+7649.92705, 0.246
+*Solid Section, elset=BONE_167, material=BONE_167
+,
+*Elset, elset=BONE_168
+168
+*Material, name=BONE_168
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_168, material=BONE_168
+,
+*Elset, elset=BONE_169
+169
+*Material, name=BONE_169
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_169, material=BONE_169
+,
+*Elset, elset=BONE_170
+170
+*Material, name=BONE_170
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_170, material=BONE_170
+,
+*Elset, elset=BONE_171
+171
+*Material, name=BONE_171
+*Elastic
+8357.00932, 0.246
+*Solid Section, elset=BONE_171, material=BONE_171
+,
+*Elset, elset=BONE_172
+172
+*Material, name=BONE_172
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_172, material=BONE_172
+,
+*Elset, elset=BONE_173
+173
+*Material, name=BONE_173
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_173, material=BONE_173
+,
+*Elset, elset=BONE_174
+174
+*Material, name=BONE_174
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_174, material=BONE_174
+,
+*Elset, elset=BONE_175
+175
+*Material, name=BONE_175
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_175, material=BONE_175
+,
+*Elset, elset=BONE_176
+176
+*Material, name=BONE_176
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_176, material=BONE_176
+,
+*Elset, elset=BONE_177
+177
+*Material, name=BONE_177
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_177, material=BONE_177
+,
+*Elset, elset=BONE_178
+178
+*Material, name=BONE_178
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_178, material=BONE_178
+,
+*Elset, elset=BONE_179
+179
+*Material, name=BONE_179
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_179, material=BONE_179
+,
+*Elset, elset=BONE_180
+180
+*Material, name=BONE_180
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_180, material=BONE_180
+,
+*Elset, elset=BONE_181
+181
+*Material, name=BONE_181
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_181, material=BONE_181
+,
+*Elset, elset=BONE_182
+182
+*Material, name=BONE_182
+*Elastic
+8193.8269, 0.246
+*Solid Section, elset=BONE_182, material=BONE_182
+,
+*Elset, elset=BONE_183
+183
+*Material, name=BONE_183
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_183, material=BONE_183
+,
+*Elset, elset=BONE_184
+184
+*Material, name=BONE_184
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_184, material=BONE_184
+,
+*Elset, elset=BONE_185
+185
+*Material, name=BONE_185
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_185, material=BONE_185
+,
+*Elset, elset=BONE_186
+186
+*Material, name=BONE_186
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_186, material=BONE_186
+,
+*Elset, elset=BONE_187
+187
+*Material, name=BONE_187
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_187, material=BONE_187
+,
+*Elset, elset=BONE_188
+188
+*Material, name=BONE_188
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_188, material=BONE_188
+,
+*Elset, elset=BONE_189
+189
+*Material, name=BONE_189
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_189, material=BONE_189
+,
+*Elset, elset=BONE_190
+190
+*Material, name=BONE_190
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_190, material=BONE_190
+,
+*Elset, elset=BONE_191
+191
+*Material, name=BONE_191
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_191, material=BONE_191
+,
+*Elset, elset=BONE_192
+192
+*Material, name=BONE_192
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_192, material=BONE_192
+,
+*Elset, elset=BONE_193
+193
+*Material, name=BONE_193
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_193, material=BONE_193
+,
+*Elset, elset=BONE_194
+194
+*Material, name=BONE_194
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_194, material=BONE_194
+,
+*Elset, elset=BONE_195
+195
+*Material, name=BONE_195
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_195, material=BONE_195
+,
+*Elset, elset=BONE_196
+196
+*Material, name=BONE_196
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_196, material=BONE_196
+,
+*Elset, elset=BONE_197
+197
+*Material, name=BONE_197
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_197, material=BONE_197
+,
+*Elset, elset=BONE_198
+198
+*Material, name=BONE_198
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_198, material=BONE_198
+,
+*Elset, elset=BONE_199
+199
+*Material, name=BONE_199
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_199, material=BONE_199
+,
+*Elset, elset=BONE_200
+200
+*Material, name=BONE_200
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_200, material=BONE_200
+,
+*Elset, elset=BONE_201
+201
+*Material, name=BONE_201
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_201, material=BONE_201
+,
+*Elset, elset=BONE_202
+202
+*Material, name=BONE_202
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_202, material=BONE_202
+,
+*Elset, elset=BONE_203
+203
+*Material, name=BONE_203
+*Elastic
+20.4660259, 0.246
+*Solid Section, elset=BONE_203, material=BONE_203
+,
+*Elset, elset=BONE_204
+204
+*Material, name=BONE_204
+*Elastic
+196.061041, 0.246
+*Solid Section, elset=BONE_204, material=BONE_204
+,
+*Elset, elset=BONE_205
+205
+*Material, name=BONE_205
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_205, material=BONE_205
+,
+*Elset, elset=BONE_206
+206
+*Material, name=BONE_206
+*Elastic
+282.068524, 0.246
+*Solid Section, elset=BONE_206, material=BONE_206
+,
+*Elset, elset=BONE_207
+207
+*Material, name=BONE_207
+*Elastic
+20.4660259, 0.246
+*Solid Section, elset=BONE_207, material=BONE_207
+,
+*Elset, elset=BONE_208
+208
+*Material, name=BONE_208
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_208, material=BONE_208
+,
+*Elset, elset=BONE_209
+209
+*Material, name=BONE_209
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_209, material=BONE_209
+,
+*Elset, elset=BONE_210
+210
+*Material, name=BONE_210
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_210, material=BONE_210
+,
+*Elset, elset=BONE_211
+211
+*Material, name=BONE_211
+*Elastic
+350.38143, 0.246
+*Solid Section, elset=BONE_211, material=BONE_211
+,
+*Elset, elset=BONE_212
+212
+*Material, name=BONE_212
+*Elastic
+6616.66314, 0.246
+*Solid Section, elset=BONE_212, material=BONE_212
+,
+*Elset, elset=BONE_213
+213
+*Material, name=BONE_213
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_213, material=BONE_213
+,
+*Elset, elset=BONE_214
+214
+*Material, name=BONE_214
+*Elastic
+252.630799, 0.246
+*Solid Section, elset=BONE_214, material=BONE_214
+,
+*Elset, elset=BONE_215
+215
+*Material, name=BONE_215
+*Elastic
+167.718438, 0.246
+*Solid Section, elset=BONE_215, material=BONE_215
+,
+*Elset, elset=BONE_216
+216
+*Material, name=BONE_216
+*Elastic
+7552.10115, 0.246
+*Solid Section, elset=BONE_216, material=BONE_216
+,
+*Elset, elset=BONE_217
+217
+*Material, name=BONE_217
+*Elastic
+478.472879, 0.246
+*Solid Section, elset=BONE_217, material=BONE_217
+,
+*Elset, elset=BONE_218
+218
+*Material, name=BONE_218
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_218, material=BONE_218
+,
+*Elset, elset=BONE_219
+219
+*Material, name=BONE_219
+*Elastic
+258.00054, 0.246
+*Solid Section, elset=BONE_219, material=BONE_219
+,
+*Elset, elset=BONE_220
+220
+*Material, name=BONE_220
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_220, material=BONE_220
+,
+*Elset, elset=BONE_221
+221
+*Material, name=BONE_221
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_221, material=BONE_221
+,
+*Elset, elset=BONE_222
+222
+*Material, name=BONE_222
+*Elastic
+2471.60122, 0.246
+*Solid Section, elset=BONE_222, material=BONE_222
+,
+*Elset, elset=BONE_223
+223
+*Material, name=BONE_223
+*Elastic
+7.18133729, 0.246
+*Solid Section, elset=BONE_223, material=BONE_223
+,
+*Elset, elset=BONE_224
+224
+*Material, name=BONE_224
+*Elastic
+232.854115, 0.246
+*Solid Section, elset=BONE_224, material=BONE_224
+,
+*Elset, elset=BONE_225
+225
+*Material, name=BONE_225
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_225, material=BONE_225
+,
+*Elset, elset=BONE_226
+226
+*Material, name=BONE_226
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_226, material=BONE_226
+,
+*Elset, elset=BONE_227
+227
+*Material, name=BONE_227
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_227, material=BONE_227
+,
+*Elset, elset=BONE_228
+228
+*Material, name=BONE_228
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_228, material=BONE_228
+,
+*Elset, elset=BONE_229
+229
+*Material, name=BONE_229
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_229, material=BONE_229
+,
+*Elset, elset=BONE_230
+230
+*Material, name=BONE_230
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_230, material=BONE_230
+,
+*Elset, elset=BONE_231
+231
+*Material, name=BONE_231
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_231, material=BONE_231
+,
+*Elset, elset=BONE_232
+232
+*Material, name=BONE_232
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_232, material=BONE_232
+,
+*Elset, elset=BONE_233
+233
+*Material, name=BONE_233
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_233, material=BONE_233
+,
+*Elset, elset=BONE_234
+234
+*Material, name=BONE_234
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_234, material=BONE_234
+,
+*Elset, elset=BONE_235
+235
+*Material, name=BONE_235
+*Elastic
+299.96529, 0.246
+*Solid Section, elset=BONE_235, material=BONE_235
+,
+*Elset, elset=BONE_236
+236
+*Material, name=BONE_236
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_236, material=BONE_236
+,
+*Elset, elset=BONE_237
+237
+*Material, name=BONE_237
+*Elastic
+7874.4472, 0.246
+*Solid Section, elset=BONE_237, material=BONE_237
+,
+*Elset, elset=BONE_238
+238
+*Material, name=BONE_238
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_238, material=BONE_238
+,
+*Elset, elset=BONE_239
+239
+*Material, name=BONE_239
+*Elastic
+2530.69504, 0.246
+*Solid Section, elset=BONE_239, material=BONE_239
+,
+*Elset, elset=BONE_240
+240
+*Material, name=BONE_240
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_240, material=BONE_240
+,
+*Elset, elset=BONE_241
+241
+*Material, name=BONE_241
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_241, material=BONE_241
+,
+*Elset, elset=BONE_242
+242
+*Material, name=BONE_242
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_242, material=BONE_242
+,
+*Elset, elset=BONE_243
+243
+*Material, name=BONE_243
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_243, material=BONE_243
+,
+*Elset, elset=BONE_244
+244
+*Material, name=BONE_244
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_244, material=BONE_244
+,
+*Elset, elset=BONE_245
+245
+*Material, name=BONE_245
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_245, material=BONE_245
+,
+*Elset, elset=BONE_246
+246
+*Material, name=BONE_246
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_246, material=BONE_246
+,
+*Elset, elset=BONE_247
+247
+*Material, name=BONE_247
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_247, material=BONE_247
+,
+*Elset, elset=BONE_248
+248
+*Material, name=BONE_248
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_248, material=BONE_248
+,
+*Elset, elset=BONE_249
+249
+*Material, name=BONE_249
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_249, material=BONE_249
+,
+*Elset, elset=BONE_250
+250
+*Material, name=BONE_250
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_250, material=BONE_250
+,
+*Elset, elset=BONE_251
+251
+*Material, name=BONE_251
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_251, material=BONE_251
+,
+*Elset, elset=BONE_252
+252
+*Material, name=BONE_252
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_252, material=BONE_252
+,
+*Elset, elset=BONE_253
+253
+*Material, name=BONE_253
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_253, material=BONE_253
+,
+*Elset, elset=BONE_254
+254
+*Material, name=BONE_254
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_254, material=BONE_254
+,
+*Elset, elset=BONE_255
+255
+*Material, name=BONE_255
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_255, material=BONE_255
+,
+*Elset, elset=BONE_256
+256
+*Material, name=BONE_256
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_256, material=BONE_256
+,
+*Elset, elset=BONE_257
+257
+*Material, name=BONE_257
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_257, material=BONE_257
+,
+*Elset, elset=BONE_258
+258
+*Material, name=BONE_258
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_258, material=BONE_258
+,
+*Elset, elset=BONE_259
+259
+*Material, name=BONE_259
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_259, material=BONE_259
+,
+*Elset, elset=BONE_260
+260
+*Material, name=BONE_260
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_260, material=BONE_260
+,
+*Elset, elset=BONE_261
+261
+*Material, name=BONE_261
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_261, material=BONE_261
+,
+*Elset, elset=BONE_262
+262
+*Material, name=BONE_262
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_262, material=BONE_262
+,
+*Elset, elset=BONE_263
+263
+*Material, name=BONE_263
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_263, material=BONE_263
+,
+*Elset, elset=BONE_264
+264
+*Material, name=BONE_264
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_264, material=BONE_264
+,
+*Elset, elset=BONE_265
+265
+*Material, name=BONE_265
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_265, material=BONE_265
+,
+*Elset, elset=BONE_266
+266
+*Material, name=BONE_266
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_266, material=BONE_266
+,
+*Elset, elset=BONE_267
+267
+*Material, name=BONE_267
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_267, material=BONE_267
+,
+*Elset, elset=BONE_268
+268
+*Material, name=BONE_268
+*Elastic
+20.4660259, 0.246
+*Solid Section, elset=BONE_268, material=BONE_268
+,
+*Elset, elset=BONE_269
+269
+*Material, name=BONE_269
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_269, material=BONE_269
+,
+*Elset, elset=BONE_270
+270
+*Material, name=BONE_270
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_270, material=BONE_270
+,
+*Elset, elset=BONE_271
+271
+*Material, name=BONE_271
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_271, material=BONE_271
+,
+*Elset, elset=BONE_272
+272
+*Material, name=BONE_272
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_272, material=BONE_272
+,
+*Elset, elset=BONE_273
+273
+*Material, name=BONE_273
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_273, material=BONE_273
+,
+*Elset, elset=BONE_274
+274
+*Material, name=BONE_274
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_274, material=BONE_274
+,
+*Elset, elset=BONE_275
+275
+*Material, name=BONE_275
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_275, material=BONE_275
+,
+*Elset, elset=BONE_276
+276
+*Material, name=BONE_276
+*Elastic
+117.889318, 0.246
+*Solid Section, elset=BONE_276, material=BONE_276
+,
+*Elset, elset=BONE_277
+277
+*Material, name=BONE_277
+*Elastic
+7234.98734, 0.246
+*Solid Section, elset=BONE_277, material=BONE_277
+,
+*Elset, elset=BONE_278
+278
+*Material, name=BONE_278
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_278, material=BONE_278
+,
+*Elset, elset=BONE_279
+279
+*Material, name=BONE_279
+*Elastic
+2420.16001, 0.246
+*Solid Section, elset=BONE_279, material=BONE_279
+,
+*Elset, elset=BONE_280
+280
+*Material, name=BONE_280
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_280, material=BONE_280
+,
+*Elset, elset=BONE_281
+281
+*Material, name=BONE_281
+*Elastic
+656.59923, 0.246
+*Solid Section, elset=BONE_281, material=BONE_281
+,
+*Elset, elset=BONE_282
+282
+*Material, name=BONE_282
+*Elastic
+68.7959878, 0.246
+*Solid Section, elset=BONE_282, material=BONE_282
+,
+*Elset, elset=BONE_283
+283
+*Material, name=BONE_283
+*Elastic
+133.226882, 0.246
+*Solid Section, elset=BONE_283, material=BONE_283
+,
+*Elset, elset=BONE_284
+284
+*Material, name=BONE_284
+*Elastic
+720.713755, 0.246
+*Solid Section, elset=BONE_284, material=BONE_284
+,
+*Elset, elset=BONE_285
+285
+*Material, name=BONE_285
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_285, material=BONE_285
+,
+*Elset, elset=BONE_286
+286
+*Material, name=BONE_286
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_286, material=BONE_286
+,
+*Elset, elset=BONE_287
+287
+*Material, name=BONE_287
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_287, material=BONE_287
+,
+*Elset, elset=BONE_288
+288
+*Material, name=BONE_288
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_288, material=BONE_288
+,
+*Elset, elset=BONE_289
+289
+*Material, name=BONE_289
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_289, material=BONE_289
+,
+*Elset, elset=BONE_290
+290
+*Material, name=BONE_290
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_290, material=BONE_290
+,
+*Elset, elset=BONE_291
+291
+*Material, name=BONE_291
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_291, material=BONE_291
+,
+*Elset, elset=BONE_292
+292
+*Material, name=BONE_292
+*Elastic
+62.0906796, 0.246
+*Solid Section, elset=BONE_292, material=BONE_292
+,
+*Elset, elset=BONE_293
+293
+*Material, name=BONE_293
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_293, material=BONE_293
+,
+*Elset, elset=BONE_294
+294
+*Material, name=BONE_294
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_294, material=BONE_294
+,
+*Elset, elset=BONE_295
+295
+*Material, name=BONE_295
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_295, material=BONE_295
+,
+*Elset, elset=BONE_296
+296
+*Material, name=BONE_296
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_296, material=BONE_296
+,
+*Elset, elset=BONE_297
+297
+*Material, name=BONE_297
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_297, material=BONE_297
+,
+*Elset, elset=BONE_298
+298
+*Material, name=BONE_298
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_298, material=BONE_298
+,
+*Elset, elset=BONE_299
+299
+*Material, name=BONE_299
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_299, material=BONE_299
+,
+*Elset, elset=BONE_300
+300
+*Material, name=BONE_300
+*Elastic
+38.0886484, 0.246
+*Solid Section, elset=BONE_300, material=BONE_300
+,
+*Elset, elset=BONE_301
+301
+*Material, name=BONE_301
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_301, material=BONE_301
+,
+*Elset, elset=BONE_302
+302
+*Material, name=BONE_302
+*Elastic
+67.3641432, 0.246
+*Solid Section, elset=BONE_302, material=BONE_302
+,
+*Elset, elset=BONE_303
+303
+*Material, name=BONE_303
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_303, material=BONE_303
+,
+*Elset, elset=BONE_304
+304
+*Material, name=BONE_304
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_304, material=BONE_304
+,
+*Elset, elset=BONE_305
+305
+*Material, name=BONE_305
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_305, material=BONE_305
+,
+*Elset, elset=BONE_306
+306
+*Material, name=BONE_306
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_306, material=BONE_306
+,
+*Elset, elset=BONE_307
+307
+*Material, name=BONE_307
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_307, material=BONE_307
+,
+*Elset, elset=BONE_308
+308
+*Material, name=BONE_308
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_308, material=BONE_308
+,
+*Elset, elset=BONE_309
+309
+*Material, name=BONE_309
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_309, material=BONE_309
+,
+*Elset, elset=BONE_310
+310
+*Material, name=BONE_310
+*Elastic
+6.61233162, 0.246
+*Solid Section, elset=BONE_310, material=BONE_310
+,
+*Elset, elset=BONE_311
+311
+*Material, name=BONE_311
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_311, material=BONE_311
+,
+*Elset, elset=BONE_312
+312
+*Material, name=BONE_312
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_312, material=BONE_312
+,
+*Elset, elset=BONE_313
+313
+*Material, name=BONE_313
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_313, material=BONE_313
+,
+*Elset, elset=BONE_314
+314
+*Material, name=BONE_314
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_314, material=BONE_314
+,
+*Elset, elset=BONE_315
+315
+*Material, name=BONE_315
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_315, material=BONE_315
+,
+*Elset, elset=BONE_316
+316
+*Material, name=BONE_316
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_316, material=BONE_316
+,
+*Elset, elset=BONE_317
+317
+*Material, name=BONE_317
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_317, material=BONE_317
+,
+*Elset, elset=BONE_318
+318
+*Material, name=BONE_318
+*Elastic
+237.55814, 0.246
+*Solid Section, elset=BONE_318, material=BONE_318
+,
+*Elset, elset=BONE_319
+319
+*Material, name=BONE_319
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_319, material=BONE_319
+,
+*Elset, elset=BONE_320
+320
+*Material, name=BONE_320
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_320, material=BONE_320
+,
+*Elset, elset=BONE_321
+321
+*Material, name=BONE_321
+*Elastic
+3586.47689, 0.246
+*Solid Section, elset=BONE_321, material=BONE_321
+,
+*Elset, elset=BONE_322
+322
+*Material, name=BONE_322
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_322, material=BONE_322
+,
+*Elset, elset=BONE_323
+323
+*Material, name=BONE_323
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_323, material=BONE_323
+,
+*Elset, elset=BONE_324
+324
+*Material, name=BONE_324
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_324, material=BONE_324
+,
+*Elset, elset=BONE_325
+325
+*Material, name=BONE_325
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_325, material=BONE_325
+,
+*Elset, elset=BONE_326
+326
+*Material, name=BONE_326
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_326, material=BONE_326
+,
+*Elset, elset=BONE_327
+327
+*Material, name=BONE_327
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_327, material=BONE_327
+,
+*Elset, elset=BONE_328
+328
+*Material, name=BONE_328
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_328, material=BONE_328
+,
+*Elset, elset=BONE_329
+329
+*Material, name=BONE_329
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_329, material=BONE_329
+,
+*Elset, elset=BONE_330
+330
+*Material, name=BONE_330
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_330, material=BONE_330
+,
+*Elset, elset=BONE_331
+331
+*Material, name=BONE_331
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_331, material=BONE_331
+,
+*Elset, elset=BONE_332
+332
+*Material, name=BONE_332
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_332, material=BONE_332
+,
+*Elset, elset=BONE_333
+333
+*Material, name=BONE_333
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_333, material=BONE_333
+,
+*Elset, elset=BONE_334
+334
+*Material, name=BONE_334
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_334, material=BONE_334
+,
+*Elset, elset=BONE_335
+335
+*Material, name=BONE_335
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_335, material=BONE_335
+,
+*Elset, elset=BONE_336
+336
+*Material, name=BONE_336
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_336, material=BONE_336
+,
+*Elset, elset=BONE_337
+337
+*Material, name=BONE_337
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_337, material=BONE_337
+,
+*Elset, elset=BONE_338
+338
+*Material, name=BONE_338
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_338, material=BONE_338
+,
+*Elset, elset=BONE_339
+339
+*Material, name=BONE_339
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_339, material=BONE_339
+,
+*Elset, elset=BONE_340
+340
+*Material, name=BONE_340
+*Elastic
+1713.98682, 0.246
+*Solid Section, elset=BONE_340, material=BONE_340
+,
+*Elset, elset=BONE_341
+341
+*Material, name=BONE_341
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_341, material=BONE_341
+,
+*Elset, elset=BONE_342
+342
+*Material, name=BONE_342
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_342, material=BONE_342
+,
+*Elset, elset=BONE_343
+343
+*Material, name=BONE_343
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_343, material=BONE_343
+,
+*Elset, elset=BONE_344
+344
+*Material, name=BONE_344
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_344, material=BONE_344
+,
+*Elset, elset=BONE_345
+345
+*Material, name=BONE_345
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_345, material=BONE_345
+,
+*Elset, elset=BONE_346
+346
+*Material, name=BONE_346
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_346, material=BONE_346
+,
+*Elset, elset=BONE_347
+347
+*Material, name=BONE_347
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_347, material=BONE_347
+,
+*Elset, elset=BONE_348
+348
+*Material, name=BONE_348
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_348, material=BONE_348
+,
+*Elset, elset=BONE_349
+349
+*Material, name=BONE_349
+*Elastic
+5553.84459, 0.246
+*Solid Section, elset=BONE_349, material=BONE_349
+,
+*Elset, elset=BONE_350
+350
+*Material, name=BONE_350
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_350, material=BONE_350
+,
+*Elset, elset=BONE_351
+351
+*Material, name=BONE_351
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_351, material=BONE_351
+,
+*Elset, elset=BONE_352
+352
+*Material, name=BONE_352
+*Elastic
+8534.64, 0.246
+*Solid Section, elset=BONE_352, material=BONE_352
+,
+*Elset, elset=BONE_353
+353
+*Material, name=BONE_353
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_353, material=BONE_353
+,
+*Elset, elset=BONE_354
+354
+*Material, name=BONE_354
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_354, material=BONE_354
+,
+*Elset, elset=BONE_355
+355
+*Material, name=BONE_355
+*Elastic
+2471.60122, 0.246
+*Solid Section, elset=BONE_355, material=BONE_355
+,
+*Elset, elset=BONE_356
+356
+*Material, name=BONE_356
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_356, material=BONE_356
+,
+*Elset, elset=BONE_357
+357
+*Material, name=BONE_357
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_357, material=BONE_357
+,
+*Elset, elset=BONE_358
+358
+*Material, name=BONE_358
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_358, material=BONE_358
+,
+*Elset, elset=BONE_359
+359
+*Material, name=BONE_359
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_359, material=BONE_359
+,
+*Elset, elset=BONE_360
+360
+*Material, name=BONE_360
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_360, material=BONE_360
+,
+*Elset, elset=BONE_361
+361
+*Material, name=BONE_361
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_361, material=BONE_361
+,
+*Elset, elset=BONE_362
+362
+*Material, name=BONE_362
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_362, material=BONE_362
+,
+*Elset, elset=BONE_363
+363
+*Material, name=BONE_363
+*Elastic
+21.7645603, 0.246
+*Solid Section, elset=BONE_363, material=BONE_363
+,
+*Elset, elset=BONE_364
+364
+*Material, name=BONE_364
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_364, material=BONE_364
+,
+*Elset, elset=BONE_365
+365
+*Material, name=BONE_365
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_365, material=BONE_365
+,
+*Elset, elset=BONE_366
+366
+*Material, name=BONE_366
+*Elastic
+167.718438, 0.246
+*Solid Section, elset=BONE_366, material=BONE_366
+,
+*Elset, elset=BONE_367
+367
+*Material, name=BONE_367
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_367, material=BONE_367
+,
+*Elset, elset=BONE_368
+368
+*Material, name=BONE_368
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_368, material=BONE_368
+,
+*Elset, elset=BONE_369
+369
+*Material, name=BONE_369
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_369, material=BONE_369
+,
+*Elset, elset=BONE_370
+370
+*Material, name=BONE_370
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_370, material=BONE_370
+,
+*Elset, elset=BONE_371
+371
+*Material, name=BONE_371
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_371, material=BONE_371
+,
+*Elset, elset=BONE_372
+372
+*Material, name=BONE_372
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_372, material=BONE_372
+,
+*Elset, elset=BONE_373
+373
+*Material, name=BONE_373
+*Elastic
+2275.76651, 0.246
+*Solid Section, elset=BONE_373, material=BONE_373
+,
+*Elset, elset=BONE_374
+374
+*Material, name=BONE_374
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_374, material=BONE_374
+,
+*Elset, elset=BONE_375
+375
+*Material, name=BONE_375
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_375, material=BONE_375
+,
+*Elset, elset=BONE_376
+376
+*Material, name=BONE_376
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_376, material=BONE_376
+,
+*Elset, elset=BONE_377
+377
+*Material, name=BONE_377
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_377, material=BONE_377
+,
+*Elset, elset=BONE_378
+378
+*Material, name=BONE_378
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_378, material=BONE_378
+,
+*Elset, elset=BONE_379
+379
+*Material, name=BONE_379
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_379, material=BONE_379
+,
+*Elset, elset=BONE_380
+380
+*Material, name=BONE_380
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_380, material=BONE_380
+,
+*Elset, elset=BONE_381
+381
+*Material, name=BONE_381
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_381, material=BONE_381
+,
+*Elset, elset=BONE_382
+382
+*Material, name=BONE_382
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_382, material=BONE_382
+,
+*Elset, elset=BONE_383
+383
+*Material, name=BONE_383
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_383, material=BONE_383
+,
+*Elset, elset=BONE_384
+384
+*Material, name=BONE_384
+*Elastic
+1, 0.246
+*Solid Section, elset=BONE_384, material=BONE_384
+,

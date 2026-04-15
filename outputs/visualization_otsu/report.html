@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT-to-FE BV/TV Report - Otsu threshold</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; color: #172026; background: #f7f8fa; }
+    header { background: #172026; color: white; padding: 24px 32px; }
+    main { padding: 24px 32px 40px; max-width: 1280px; margin: 0 auto; }
+    h1 { margin: 0 0 8px; font-size: 28px; }
+    h2 { margin: 28px 0 12px; font-size: 20px; }
+    .meta, .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+    .box { background: white; border: 1px solid #d8dee4; border-radius: 8px; padding: 14px 16px; }
+    .box strong { display: block; color: #5b6770; font-size: 12px; text-transform: uppercase; margin-bottom: 6px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px; }
+    figure { background: white; border: 1px solid #d8dee4; border-radius: 8px; margin: 0; padding: 10px; }
+    img { width: 100%; height: auto; display: block; }
+    figcaption { font-size: 13px; color: #5b6770; margin-top: 8px; }
+    table { width: 100%; border-collapse: collapse; background: white; border: 1px solid #d8dee4; border-radius: 8px; overflow: hidden; }
+    th, td { padding: 8px 10px; border-bottom: 1px solid #eaeef2; text-align: right; }
+    th:first-child, td:first-child { text-align: left; }
+    th { background: #eef2f5; color: #172026; }
+    code { background: #eef2f5; padding: 2px 5px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CT-to-FE BV/TV Report - Otsu threshold</h1>
+    <div>Input CT, FE mesh, segmentation, and mapped element BV/TV outputs.</div>
+  </header>
+  <main>
+    <h2>Inputs And Outputs</h2>
+    <section class="meta">
+      <div class="box"><strong>CT volume</strong>data/CT_Abdo.nii.gz</div>
+      <div class="box"><strong>FE mesh</strong>data/demo_abdomen_mesh.inp</div>
+      <div class="box"><strong>Mapping CSV</strong>outputs/demo_abdomen_bvtv_otsu.csv</div>
+      <div class="box"><strong>Volume shape</strong>(255, 178, 256)</div>
+      <div class="box"><strong>Voxel spacing mm</strong>1.494, 1.49, 1.494</div>
+      <div class="box"><strong>Threshold</strong>-441.004</div>
+    </section>
+
+    <h2>Summary</h2>
+    <section class="stats">
+      <div class="box"><strong>Elements</strong>384</div>
+      <div class="box"><strong>Nonzero BV/TV</strong>205</div>
+      <div class="box"><strong>BV/TV min mean max</strong>0.0000 / 0.4465 / 1.0000</div>
+      <div class="box"><strong>Full BV/TV elements</strong>150</div>
+      <div class="box"><strong>Young modulus min max MPa</strong>0.00 / 8534.64</div>
+      <div class="box"><strong>Sample voxels min max</strong>77 / 83</div>
+    </section>
+
+    <h2>Input CT Slices</h2>
+    <section class="grid">
+      <figure><img src="assets/ct_axial.png" alt="Input CT axial slice"><figcaption>Input CT axial slice</figcaption></figure>
+      <figure><img src="assets/ct_coronal.png" alt="Input CT coronal slice"><figcaption>Input CT coronal slice</figcaption></figure>
+      <figure><img src="assets/ct_sagittal.png" alt="Input CT sagittal slice"><figcaption>Input CT sagittal slice</figcaption></figure>
+    </section>
+
+    <h2>Segmentation Used For BV/TV</h2>
+    <section class="grid">
+      <figure><img src="assets/mask_axial.png" alt="Segmented axial slice"><figcaption>Segmented axial slice</figcaption></figure>
+      <figure><img src="assets/mask_coronal.png" alt="Segmented coronal slice"><figcaption>Segmented coronal slice</figcaption></figure>
+      <figure><img src="assets/mask_sagittal.png" alt="Segmented sagittal slice"><figcaption>Segmented sagittal slice</figcaption></figure>
+    </section>
+
+    <h2>Mapped Output On CT</h2>
+    <section class="grid">
+      <figure><img src="assets/overlay_axial.png" alt="Element centroids near axial slice colored by BV/TV"><figcaption>Element centroids near axial slice colored by BV/TV</figcaption></figure>
+      <figure><img src="assets/overlay_coronal.png" alt="Element centroids near coronal slice colored by BV/TV"><figcaption>Element centroids near coronal slice colored by BV/TV</figcaption></figure>
+      <figure><img src="assets/overlay_sagittal.png" alt="Element centroids near sagittal slice colored by BV/TV"><figcaption>Element centroids near sagittal slice colored by BV/TV</figcaption></figure>
+    </section>
+
+    <h2>Output Distributions</h2>
+    <section class="grid">
+      <figure><img src="assets/bvtv_3d_scatter.png" alt="3D FE element centroid cloud colored by BV/TV"><figcaption>3D FE element centroid cloud colored by BV/TV</figcaption></figure>
+      <figure><img src="assets/bvtv_histogram.png" alt="BV/TV histogram"><figcaption>BV/TV histogram</figcaption></figure>
+      <figure><img src="assets/youngs_modulus_histogram.png" alt="Young modulus histogram"><figcaption>Young modulus histogram</figcaption></figure>
+    </section>
+
+    <h2>Highest BV/TV Elements</h2>
+    <table>
+      <thead><tr><th>Element</th><th>BV/TV</th><th>E MPa</th><th>Sample voxels</th></tr></thead>
+      <tbody><tr><td>3</td><td>1.0000</td><td>8534.64</td><td>81</td></tr>
+<tr><td>4</td><td>1.0000</td><td>8534.64</td><td>80</td></tr>
+<tr><td>5</td><td>1.0000</td><td>8534.64</td><td>80</td></tr>
+<tr><td>6</td><td>1.0000</td><td>8534.64</td><td>81</td></tr>
+<tr><td>11</td><td>1.0000</td><td>8534.64</td><td>81</td></tr>
+<tr><td>12</td><td>1.0000</td><td>8534.64</td><td>81</td></tr>
+<tr><td>13</td><td>1.0000</td><td>8534.64</td><td>81</td></tr>
+<tr><td>14</td><td>1.0000</td><td>8534.64</td><td>81</td></tr>
+<tr><td>15</td><td>1.0000</td><td>8534.64</td><td>81</td></tr>
+<tr><td>18</td><td>1.0000</td><td>8534.64</td><td>78</td></tr>
+<tr><td>19</td><td>1.0000</td><td>8534.64</td><td>78</td></tr>
+<tr><td>20</td><td>1.0000</td><td>8534.64</td><td>83</td></tr></tbody>
+    </table>
+  </main>
+</body>
+</html>

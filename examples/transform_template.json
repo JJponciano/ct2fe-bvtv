@@ -1,0 +1,9 @@
+{
+  "description": "Template 4x4 transform mapping FE mesh coordinates into CT/world coordinates.",
+  "mesh_to_ct_transform": [
+    [1.0, 0.0, 0.0, 0.0],
+    [0.0, 1.0, 0.0, 0.0],
+    [0.0, 0.0, 1.0, 0.0],
+    [0.0, 0.0, 0.0, 1.0]
+  ]
+}

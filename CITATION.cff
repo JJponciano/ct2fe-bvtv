@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+title: "CT-to-FE BV/TV Mapping: A Non-Official Implementation"
+message: "If you use this repository, please cite this implementation and separately cite the original paper referenced below."
+type: software
+authors:
+  - name: "Dr. Jean-Jacques Ponciano"
+version: "0.1.0"
+date-released: "2026-04-15"
+license: MIT
+repository-code: "https://github.com/jean-jacquesponciano/ct2fe-bvtv"
+keywords:
+  - finite element analysis
+  - computed tomography
+  - bone volume fraction
+  - BV/TV
+  - Abaqus
+  - biomedical engineering
+references:
+  - type: article
+    authors:
+      - family-names: Vautrin
+        given-names: Antoine
+      - family-names: Thierrin
+        given-names: Raphael
+      - family-names: Wili
+        given-names: Patrik
+      - family-names: Voumard
+        given-names: Benjamin
+      - family-names: Klingler
+        given-names: Samuel
+      - family-names: Chappuis
+        given-names: Vivianne
+      - family-names: Varga
+        given-names: Peter
+      - family-names: Zysset
+        given-names: Philippe
+    title: "Homogenized finite element simulations can predict the primary stability of dental implants in human jawbone"
+    journal: "Journal of the Mechanical Behavior of Biomedical Materials"
+    volume: "158"
+    year: 2024
+    doi: "10.1016/j.jmbbm.2024.106688"

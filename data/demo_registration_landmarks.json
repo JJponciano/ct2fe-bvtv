@@ -1,0 +1,15 @@
+{
+  "description": "Identity demo landmarks. The generated FE mesh is already in CT/world coordinates.",
+  "mesh": [
+    [0.0, 0.0, 0.0],
+    [10.0, 0.0, 0.0],
+    [0.0, 10.0, 0.0],
+    [0.0, 0.0, 10.0]
+  ],
+  "ct": [
+    [0.0, 0.0, 0.0],
+    [10.0, 0.0, 0.0],
+    [0.0, 10.0, 0.0],
+    [0.0, 0.0, 10.0]
+  ]
+}
