@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 title: "CT-to-FE BV/TV Mapping: A Non-Official Implementation"
-message: "If you use this repository, please cite this implementation and separately cite the original paper referenced below."
+message: "Citation of this implementation is required for academic, scientific, educational, technical, or research use."
 type: software
 authors:
   - name: "Dr. Jean-Jacques Ponciano"
 version: "0.1.0"
 date-released: "2026-04-15"
-license: MIT
-repository-code: "https://github.com/jean-jacquesponciano/ct2fe-bvtv"
+license: "Research Software License With Academic Citation Requirement"
+repository-code: "https://github.com/JJponciano/ct2fe-bvtv"
 keywords:
   - finite element analysis
   - computed tomography

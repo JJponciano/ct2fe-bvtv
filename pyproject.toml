@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Non-official Python implementation of CT-derived BV/TV mapping to finite element meshes."
 readme = "README.md"
 requires-python = ">=3.10"
-license = { text = "MIT" }
+license = { text = "Research Software License With Academic Citation Requirement" }
 authors = [
   { name = "Dr. Jean-Jacques Ponciano" }
 ]
@@ -15,6 +15,7 @@ dependencies = [
 ]
 
 [project.urls]
+Repository = "https://github.com/JJponciano/ct2fe-bvtv"
 Reference = "https://doi.org/10.1016/j.jmbbm.2024.106688"
 
 [tool.pytest.ini_options]

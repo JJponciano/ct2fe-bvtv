@@ -24,7 +24,7 @@ The implementation is based on the method described in:
 
 Vautrin, A., Thierrin, R., Wili, P., Voumard, B., Klingler, S., Chappuis, V., Varga, P., & Zysset, P. (2024). *Homogenized finite element simulations can predict the primary stability of dental implants in human jawbone*. Journal of the Mechanical Behavior of Biomedical Materials, 158, 106688. <https://doi.org/10.1016/j.jmbbm.2024.106688>
 
-When using this repository, cite both this software repository and the original article.
+Citation of this implementation is required for academic, scientific, educational, technical, or research use. The original article should be cited separately when discussing the scientific method or paper-specific results.
 
 ## Scope Of The Implementation
 
@@ -435,10 +435,10 @@ No random seed is required because the pipeline is deterministic.
 
 ## Citation
 
-If using this repository, cite:
+If using this repository in academic, scientific, educational, technical, or research outputs, cite:
 
 ```text
-Dr. Jean-Jacques Ponciano. CT-to-FE BV/TV Mapping: A Non-Official Implementation. 2026.
+Dr. Jean-Jacques Ponciano. CT-to-FE BV/TV Mapping: A Non-Official Implementation. 2026. https://github.com/JJponciano/ct2fe-bvtv
 ```
 
 Also cite the original paper:
@@ -452,4 +452,4 @@ doi:10.1016/j.jmbbm.2024.106688
 
 ## License
 
-This repository is distributed under the MIT License. See `LICENSE`.
+This repository is distributed under a Research Software License With Academic Citation Requirement. See `LICENSE`.

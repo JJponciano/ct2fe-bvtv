@@ -1,21 +1,50 @@
-MIT License
+Research Software License With Academic Citation Requirement
 
 Copyright (c) 2026 Dr. Jean-Jacques Ponciano
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Repository: https://github.com/JJponciano/ct2fe-bvtv
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. Permission
+
+Permission is granted, free of charge, to any person obtaining a copy of this
+software and associated documentation files (the "Software"), to use, copy,
+modify, merge, publish, distribute, and create derivative works from the
+Software, subject to the conditions below.
+
+2. Citation Requirement
+
+Any use of the Software, modified or unmodified, in academic, scientific,
+educational, technical, or research outputs must cite the implementation as:
+
+Dr. Jean-Jacques Ponciano. CT-to-FE BV/TV Mapping: A Non-Official
+Implementation. 2026. https://github.com/JJponciano/ct2fe-bvtv
+
+This citation requirement applies, without limitation, to journal articles,
+conference papers, preprints, reports, theses, dissertations, posters,
+presentations, software repositories, and derivative research software.
+
+3. Attribution And Notices
+
+The above copyright notice, this license, and the citation requirement must be
+included in all copies or substantial portions of the Software.
+
+Redistributions or derivative works must not imply that Dr. Jean-Jacques
+Ponciano endorses the redistributed or derivative work, unless explicit written
+permission has been granted.
+
+4. Non-Official Implementation
+
+This Software is a non-official implementation inspired by the referenced
+scientific literature. It is not authored, reviewed, endorsed, or validated by
+the authors of the referenced paper.
+
+5. No Warranty
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+FITNESS FOR A PARTICULAR PURPOSE, ACCURACY, VALIDITY, REPRODUCIBILITY,
+NONINFRINGEMENT, OR SUITABILITY FOR CLINICAL, REGULATORY, OR COMMERCIAL USE.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING
+FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
