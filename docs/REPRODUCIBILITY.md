@@ -42,6 +42,16 @@ The workflow will:
 7. create HTML reports;
 8. run synthetic and output consistency checks.
 
+## High-Quality Offline Demonstration
+
+For a longer, higher-resolution demonstration, run:
+
+```bash
+bash examples/run_high_quality_offline_demo.sh
+```
+
+This offline script expects `data/CT_Abdo.nii.gz` to already exist locally. It uses a finer default mesh (`32,24,32`, or `24,576` C3D8 elements), high-DPI visualization assets, and full-element final FE mesh rendering. Outputs are written under `outputs/high_quality/`.
+
 ## Determinism
 
 The current implementation is deterministic. No random sampling or stochastic optimization is used. Fixed seeds are therefore not required.

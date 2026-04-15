@@ -121,9 +121,10 @@ def save_slice(
     title: str,
     vmin: float,
     vmax: float,
+    dpi: int,
 ) -> None:
     image = normalize_image(slice_for_axis(data, axis, index), vmin=vmin, vmax=vmax)
-    fig, ax = plt.subplots(figsize=(6, 6), dpi=150)
+    fig, ax = plt.subplots(figsize=(6, 6), dpi=dpi)
     ax.imshow(image, cmap="gray", origin="lower")
     ax.set_title(title)
     ax.set_xlabel("voxel index")
@@ -133,8 +134,8 @@ def save_slice(
     plt.close(fig)
 
 
-def save_mask_slice(output_path: Path, mask: np.ndarray, axis: int, index: int, title: str) -> None:
-    fig, ax = plt.subplots(figsize=(6, 6), dpi=150)
+def save_mask_slice(output_path: Path, mask: np.ndarray, axis: int, index: int, title: str, dpi: int) -> None:
+    fig, ax = plt.subplots(figsize=(6, 6), dpi=dpi)
     ax.imshow(slice_for_axis(mask, axis, index), cmap="gray", origin="lower", vmin=0, vmax=1)
     ax.set_title(title)
     ax.set_xlabel("voxel index")
@@ -155,6 +156,7 @@ def save_overlay(
     vmin: float,
     vmax: float,
     slice_tolerance: float,
+    dpi: int,
 ) -> None:
     image = normalize_image(slice_for_axis(data, axis, index), vmin=vmin, vmax=vmax)
     x, y, z = projection_for_axis(points_ijk, axis)
@@ -162,7 +164,7 @@ def save_overlay(
     zero = keep & np.isfinite(bvtv) & (bvtv <= 0.0)
     positive = keep & np.isfinite(bvtv) & (bvtv > 0.0)
 
-    fig, ax = plt.subplots(figsize=(6, 6), dpi=150)
+    fig, ax = plt.subplots(figsize=(6, 6), dpi=dpi)
     ax.imshow(image, cmap="gray", origin="lower")
     if np.any(zero):
         ax.scatter(
@@ -198,8 +200,8 @@ def save_overlay(
     plt.close(fig)
 
 
-def save_histogram(output_path: Path, values: np.ndarray, title: str, xlabel: str) -> None:
-    fig, ax = plt.subplots(figsize=(7, 4), dpi=150)
+def save_histogram(output_path: Path, values: np.ndarray, title: str, xlabel: str, dpi: int) -> None:
+    fig, ax = plt.subplots(figsize=(7, 4), dpi=dpi)
     ax.hist(values[np.isfinite(values)], bins=30, color="#2374ab", edgecolor="white")
     ax.set_title(title)
     ax.set_xlabel(xlabel)
@@ -209,8 +211,8 @@ def save_histogram(output_path: Path, values: np.ndarray, title: str, xlabel: st
     plt.close(fig)
 
 
-def save_3d_scatter(output_path: Path, points: np.ndarray, bvtv: np.ndarray) -> None:
-    fig = plt.figure(figsize=(7, 6), dpi=150)
+def save_3d_scatter(output_path: Path, points: np.ndarray, bvtv: np.ndarray, dpi: int) -> None:
+    fig = plt.figure(figsize=(7, 6), dpi=dpi)
     ax = fig.add_subplot(111, projection="3d")
     scatter = ax.scatter(
         points[:, 0],
@@ -301,6 +303,7 @@ def save_mapped_mesh_3d(
     view_elev: float,
     view_azim: float,
     max_elements: int,
+    dpi: int,
     minimum_value: float | None = None,
     axis_points: np.ndarray | None = None,
 ) -> int:
@@ -312,7 +315,7 @@ def save_mapped_mesh_3d(
             candidate_ids.append(element_id)
     render_ids = selected_element_ids(candidate_ids, max_elements)
     if not render_ids:
-        fig, ax = plt.subplots(figsize=(8, 7), dpi=160)
+        fig, ax = plt.subplots(figsize=(8, 7), dpi=dpi)
         ax.text(0.5, 0.5, "No elements satisfy this visualization filter", ha="center", va="center")
         ax.set_axis_off()
         fig.tight_layout()
@@ -338,7 +341,7 @@ def save_mapped_mesh_3d(
         raise ValueError("No renderable finite elements found for final FE mesh visualization")
 
     points = np.vstack(all_points)
-    fig = plt.figure(figsize=(8, 7), dpi=160)
+    fig = plt.figure(figsize=(8, 7), dpi=dpi)
     ax = fig.add_subplot(111, projection="3d")
     collection = Poly3DCollection(
         faces,
@@ -514,6 +517,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--slice-tolerance", type=float, default=3.0, help="Overlay tolerance in voxel units")
     parser.add_argument("--window-min", type=float, default=None, help="CT display window minimum")
     parser.add_argument("--window-max", type=float, default=None, help="CT display window maximum")
+    parser.add_argument("--image-dpi", type=int, default=160, help="DPI for generated PNG report assets")
     parser.add_argument(
         "--max-elements-rendered",
         type=int,
@@ -527,6 +531,8 @@ def main(argv: list[str] | None = None) -> int:
     args = build_arg_parser().parse_args(argv)
     if args.max_elements_rendered <= 0:
         raise ValueError("--max-elements-rendered must be positive")
+    if args.image_dpi <= 0:
+        raise ValueError("--image-dpi must be positive")
     out_dir = Path(args.out_dir)
     assets_dir = out_dir / "assets"
     assets_dir.mkdir(parents=True, exist_ok=True)
@@ -571,6 +577,7 @@ def main(argv: list[str] | None = None) -> int:
             f"Input CT {plane_label(axis)} slice {index}",
             vmin,
             vmax,
+            args.image_dpi,
         )
         save_mask_slice(
             assets_dir / mask_name,
@@ -578,6 +585,7 @@ def main(argv: list[str] | None = None) -> int:
             axis,
             index,
             f"Segmented {plane_label(axis)} slice {index}",
+            args.image_dpi,
         )
         save_overlay(
             assets_dir / overlay_name,
@@ -590,18 +598,20 @@ def main(argv: list[str] | None = None) -> int:
             vmin,
             vmax,
             slice_tolerance=args.slice_tolerance,
+            dpi=args.image_dpi,
         )
         images[f"ct_{name}"] = f"assets/{ct_name}"
         images[f"mask_{name}"] = f"assets/{mask_name}"
         images[f"overlay_{name}"] = f"assets/{overlay_name}"
 
-    save_3d_scatter(assets_dir / "bvtv_3d_scatter.png", points_ijk, bvtv)
-    save_histogram(assets_dir / "bvtv_histogram.png", bvtv, "BV/TV distribution", "BV/TV")
+    save_3d_scatter(assets_dir / "bvtv_3d_scatter.png", points_ijk, bvtv, args.image_dpi)
+    save_histogram(assets_dir / "bvtv_histogram.png", bvtv, "BV/TV distribution", "BV/TV", args.image_dpi)
     save_histogram(
         assets_dir / "youngs_modulus_histogram.png",
         modulus[np.isfinite(modulus)],
         "Young modulus distribution",
         "E (MPa)",
+        args.image_dpi,
     )
     mesh_points = np.vstack(list(mesh.nodes.values()))
     rendered_bvtv = save_mapped_mesh_3d(
@@ -617,6 +627,7 @@ def main(argv: list[str] | None = None) -> int:
         view_elev=24.0,
         view_azim=-52.0,
         max_elements=args.max_elements_rendered,
+        dpi=args.image_dpi,
         axis_points=mesh_points,
     )
     save_mapped_mesh_3d(
@@ -632,6 +643,7 @@ def main(argv: list[str] | None = None) -> int:
         view_elev=24.0,
         view_azim=-52.0,
         max_elements=args.max_elements_rendered,
+        dpi=args.image_dpi,
         minimum_value=0.0,
         axis_points=mesh_points,
     )
@@ -648,6 +660,7 @@ def main(argv: list[str] | None = None) -> int:
         view_elev=18.0,
         view_azim=38.0,
         max_elements=args.max_elements_rendered,
+        dpi=args.image_dpi,
         axis_points=mesh_points,
     )
     finite_modulus = modulus[np.isfinite(modulus)]
@@ -664,6 +677,7 @@ def main(argv: list[str] | None = None) -> int:
         view_elev=24.0,
         view_azim=-52.0,
         max_elements=args.max_elements_rendered,
+        dpi=args.image_dpi,
         axis_points=mesh_points,
     )
     images["scatter3d"] = "assets/bvtv_3d_scatter.png"

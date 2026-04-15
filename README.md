@@ -60,10 +60,12 @@ The default local mapping sphere diameter is `1.25 mm`, matching the article. Th
 │   └── demo_registration_landmarks.json
 ├── docs/
 │   ├── DATA_REQUIREMENTS.md
+│   ├── HIGH_QUALITY_DEMO.md
 │   ├── IMPLEMENTATION_NOTES.md
 │   └── REPRODUCIBILITY.md
 ├── examples/
 │   ├── run_demo.sh
+│   ├── run_high_quality_offline_demo.sh
 │   ├── landmarks_template.json
 │   └── transform_template.json
 ├── outputs/
@@ -104,6 +106,7 @@ The default local mapping sphere diameter is `1.25 mm`, matching the article. Th
 - `scripts/download_demo_data.py`: downloads the public demonstration CT volume.
 - `tests/test_mapper_synthetic.py`: minimal regression test for expected full-bone and empty-bone `BV/TV` values.
 - `examples/run_demo.sh`: runs the complete demonstration and verification workflow.
+- `examples/run_high_quality_offline_demo.sh`: runs a longer offline high-quality demonstration under `outputs/high_quality/`.
 
 ## Installation
 
@@ -166,6 +169,37 @@ The verification report is written to:
 ```text
 outputs/verification_report.md
 ```
+
+## High-Quality Offline Demonstration
+
+For a more precise visual demonstration, run:
+
+```bash
+bash examples/run_high_quality_offline_demo.sh
+```
+
+This script does not download data. It expects `data/CT_Abdo.nii.gz` to be present locally, generates a `32 x 24 x 32` C3D8 mesh (`24,576` elements), renders the full final FE mesh at high DPI, and writes all outputs under:
+
+```text
+outputs/high_quality/
+```
+
+Main outputs:
+
+```text
+outputs/high_quality/visualization_threshold_300/report.html
+outputs/high_quality/visualization_otsu/report.html
+outputs/high_quality/demo_abdomen_bvtv_hq.mapped.inp
+outputs/high_quality/verification_report_hq.md
+```
+
+For a heavier run:
+
+```bash
+ELEMENTS=48,36,48 IMAGE_DPI=300 bash examples/run_high_quality_offline_demo.sh
+```
+
+See `docs/HIGH_QUALITY_DEMO.md` for details and parameter overrides.
 
 ## Step-By-Step Usage
 

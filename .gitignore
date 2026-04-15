@@ -12,5 +12,8 @@ build/
 dist/
 *.log
 
+# High-quality offline demonstrations are generated locally because they can be large.
+outputs/high_quality/
+
 # The reference article should be obtained from the publisher/DOI.
 *.pdf
