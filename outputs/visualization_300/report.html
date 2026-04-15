@@ -34,6 +34,7 @@
     <section class="meta">
       <div class="box"><strong>CT volume</strong>data/CT_Abdo.nii.gz</div>
       <div class="box"><strong>FE mesh</strong>data/demo_abdomen_mesh.inp</div>
+      <div class="box"><strong>Mapped FE input</strong>outputs/demo_abdomen_bvtv.mapped.inp</div>
       <div class="box"><strong>Mapping CSV</strong>outputs/demo_abdomen_bvtv.csv</div>
       <div class="box"><strong>Volume shape</strong>(255, 178, 256)</div>
       <div class="box"><strong>Voxel spacing mm</strong>1.494, 1.49, 1.494</div>
@@ -48,6 +49,7 @@
       <div class="box"><strong>Full BV/TV elements</strong>4</div>
       <div class="box"><strong>Young modulus min max MPa</strong>0.00 / 8534.64</div>
       <div class="box"><strong>Sample voxels min max</strong>77 / 83</div>
+      <div class="box"><strong>Rendered FE elements</strong>384</div>
     </section>
 
     <h2>Input CT Slices</h2>
@@ -77,6 +79,15 @@
       <figure><img src="assets/bvtv_3d_scatter.png" alt="3D FE element centroid cloud colored by BV/TV"><figcaption>3D FE element centroid cloud colored by BV/TV</figcaption></figure>
       <figure><img src="assets/bvtv_histogram.png" alt="BV/TV histogram"><figcaption>BV/TV histogram</figcaption></figure>
       <figure><img src="assets/youngs_modulus_histogram.png" alt="Young modulus histogram"><figcaption>Young modulus histogram</figcaption></figure>
+    </section>
+
+    <h2>Final Mapped FE Mesh</h2>
+    <p>The final Abaqus input combines the FE mesh with element-wise material and section assignments derived from the CT BV/TV mapping.</p>
+    <section class="grid">
+      <figure><img src="assets/mapped_fe_bvtv_3d.png" alt="Final FE mesh colored by BV/TV"><figcaption>Final FE mesh colored by BV/TV</figcaption></figure>
+      <figure><img src="assets/mapped_fe_positive_bvtv_3d.png" alt="Final FE mesh elements with positive BV/TV"><figcaption>Final FE mesh elements with positive BV/TV</figcaption></figure>
+      <figure><img src="assets/mapped_fe_bvtv_3d_alt.png" alt="Final FE mesh colored by BV/TV, alternate view"><figcaption>Final FE mesh colored by BV/TV, alternate view</figcaption></figure>
+      <figure><img src="assets/mapped_fe_modulus_3d.png" alt="Final FE mesh colored by Young modulus"><figcaption>Final FE mesh colored by Young modulus</figcaption></figure>
     </section>
 
     <h2>Highest BV/TV Elements</h2>

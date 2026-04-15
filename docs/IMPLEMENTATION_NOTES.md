@@ -46,6 +46,10 @@ For complex Abaqus files using `*Part`/`*Assembly` scoping, users should inspect
 
 For large production models, users may prefer to bin `BV/TV` values into material classes or use field variables in Abaqus.
 
+## Final Mesh Visualization
+
+The HTML visual report includes the final mapped FE mesh rendered from the Abaqus mesh and colored by element-wise `BV/TV` and Young's modulus. This visualization is intended to check whether the exported `.mapped.inp` file has a plausible spatial material distribution before importing it into Abaqus.
+
 ## Differences From The Original Study
 
 This repository implements preprocessing and material mapping, not the complete study. In particular, it does not include:

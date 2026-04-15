@@ -40,6 +40,7 @@ python3 scripts/map_bvtv_to_fe.py \
 python3 scripts/visualize_bvtv.py \
   --ct data/CT_Abdo.nii.gz \
   --mesh data/demo_abdomen_mesh.inp \
+  --mapped-inp outputs/demo_abdomen_bvtv.mapped.inp \
   --results outputs/demo_abdomen_bvtv.csv \
   --out-dir outputs/visualization_300 \
   --title "CT-to-FE BV/TV Report - threshold 300 HU"
@@ -47,6 +48,7 @@ python3 scripts/visualize_bvtv.py \
 python3 scripts/visualize_bvtv.py \
   --ct data/CT_Abdo.nii.gz \
   --mesh data/demo_abdomen_mesh.inp \
+  --mapped-inp outputs/demo_abdomen_bvtv_otsu.mapped.inp \
   --results outputs/demo_abdomen_bvtv_otsu.csv \
   --out-dir outputs/visualization_otsu \
   --title "CT-to-FE BV/TV Report - Otsu threshold"

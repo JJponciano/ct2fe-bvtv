@@ -62,7 +62,13 @@ outputs/demo_abdomen_bvtv_registered.materials.inp
 outputs/demo_abdomen_bvtv_registered.mapped.inp
 outputs/demo_peri_implant_bvtv.csv
 outputs/visualization_300/report.html
+outputs/visualization_300/assets/mapped_fe_bvtv_3d.png
+outputs/visualization_300/assets/mapped_fe_positive_bvtv_3d.png
+outputs/visualization_300/assets/mapped_fe_modulus_3d.png
 outputs/visualization_otsu/report.html
+outputs/visualization_otsu/assets/mapped_fe_bvtv_3d.png
+outputs/visualization_otsu/assets/mapped_fe_positive_bvtv_3d.png
+outputs/visualization_otsu/assets/mapped_fe_modulus_3d.png
 outputs/verification_report.md
 ```
 

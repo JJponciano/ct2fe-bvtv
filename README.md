@@ -80,7 +80,11 @@ The default local mapping sphere diameter is `1.25 mm`, matching the article. Th
 │   ├── demo_peri_implant_bvtv.csv
 │   ├── verification_report.md
 │   ├── visualization_300/
+│   │   ├── report.html
+│   │   └── assets/
 │   └── visualization_otsu/
+│       ├── report.html
+│       └── assets/
 ├── scripts/
 │   ├── download_demo_data.py
 │   ├── make_demo_inp.py
@@ -95,7 +99,7 @@ The default local mapping sphere diameter is `1.25 mm`, matching the article. Th
 
 - `scripts/map_bvtv_to_fe.py`: main pipeline. Reads CT data and an Abaqus mesh, computes element-wise `BV/TV`, writes CSV, Abaqus material include files, self-contained mapped Abaqus input files, and optionally computes peri-implant `BV/TV`.
 - `scripts/make_demo_inp.py`: creates a regular Abaqus C3D8 demonstration mesh in the CT coordinate system.
-- `scripts/visualize_bvtv.py`: creates HTML/PNG reports showing CT slices, segmentation, mapped FE element centroids, histograms, and 3D centroid plots.
+- `scripts/visualize_bvtv.py`: creates HTML/PNG reports showing CT slices, segmentation, mapped FE element centroids, histograms, 3D centroid plots, and the final mapped FE mesh colored by `BV/TV` and Young's modulus.
 - `scripts/verify_pipeline.py`: performs deterministic verification checks on synthetic cases and demonstration outputs.
 - `scripts/download_demo_data.py`: downloads the public demonstration CT volume.
 - `tests/test_mapper_synthetic.py`: minimal regression test for expected full-bone and empty-bone `BV/TV` values.
@@ -299,6 +303,7 @@ outputs/demo_peri_implant_bvtv.csv
 python3 scripts/visualize_bvtv.py \
   --ct data/CT_Abdo.nii.gz \
   --mesh data/demo_abdomen_mesh.inp \
+  --mapped-inp outputs/demo_abdomen_bvtv.mapped.inp \
   --results outputs/demo_abdomen_bvtv.csv \
   --out-dir outputs/visualization_300 \
   --title "CT-to-FE BV/TV Report - threshold 300 HU"
@@ -310,7 +315,14 @@ Open:
 outputs/visualization_300/report.html
 ```
 
-The report contains CT slices, segmentation slices, `BV/TV` overlays, histograms, and a 3D centroid plot.
+The report contains CT slices, segmentation slices, `BV/TV` overlays, histograms, a 3D centroid plot, and a final mapped FE mesh view. The final mesh images are written under:
+
+```text
+outputs/visualization_300/assets/mapped_fe_bvtv_3d.png
+outputs/visualization_300/assets/mapped_fe_positive_bvtv_3d.png
+outputs/visualization_300/assets/mapped_fe_bvtv_3d_alt.png
+outputs/visualization_300/assets/mapped_fe_modulus_3d.png
+```
 
 ### 8. Verify The Pipeline
 

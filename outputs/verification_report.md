@@ -28,6 +28,10 @@
 - PASS: registered-threshold-300: BV/TV range, sampled voxel counts, nu, E formula, and Abaqus modulus all pass
 - PASS: registered-threshold-300: selected elements recompute exactly from CT and mesh
 - PASS: peri-implant output is valid (BV/TV=0.541667, sample_voxels=96)
+- PASS: visualization-threshold-300: visual report contains the final mapped FE mesh section
+- PASS: visualization-threshold-300: final FE mesh BV/TV and modulus visualization assets exist
+- PASS: visualization-otsu: visual report contains the final mapped FE mesh section
+- PASS: visualization-otsu: final FE mesh BV/TV and modulus visualization assets exist
 
 ## Agreement With The Article
 

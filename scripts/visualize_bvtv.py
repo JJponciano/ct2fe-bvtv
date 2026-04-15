@@ -15,6 +15,8 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
+from matplotlib import cm, colors  # noqa: E402
+from mpl_toolkits.mplot3d.art3d import Poly3DCollection  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from map_bvtv_to_fe import parse_abaqus_inp, read_nifti, segment_volume  # noqa: E402
@@ -231,17 +233,149 @@ def save_3d_scatter(output_path: Path, points: np.ndarray, bvtv: np.ndarray) -> 
     plt.close(fig)
 
 
+def hexahedron_faces(coords: np.ndarray) -> list[np.ndarray]:
+    if coords.shape[0] == 8:
+        face_indices = [
+            (0, 1, 2, 3),
+            (4, 5, 6, 7),
+            (0, 1, 5, 4),
+            (1, 2, 6, 5),
+            (2, 3, 7, 6),
+            (3, 0, 4, 7),
+        ]
+        return [coords[list(face)] for face in face_indices]
+
+    lower = coords.min(axis=0)
+    upper = coords.max(axis=0)
+    x0, y0, z0 = lower
+    x1, y1, z1 = upper
+    box = np.array(
+        [
+            [x0, y0, z0],
+            [x1, y0, z0],
+            [x1, y1, z0],
+            [x0, y1, z0],
+            [x0, y0, z1],
+            [x1, y0, z1],
+            [x1, y1, z1],
+            [x0, y1, z1],
+        ],
+        dtype=float,
+    )
+    return hexahedron_faces(box)
+
+
+def selected_element_ids(element_ids: list[int], max_elements: int) -> list[int]:
+    if len(element_ids) <= max_elements:
+        return element_ids
+    indices = np.linspace(0, len(element_ids) - 1, max_elements, dtype=int)
+    return [element_ids[index] for index in np.unique(indices)]
+
+
+def set_axes_equal(ax, points: np.ndarray) -> None:
+    mins = points.min(axis=0)
+    maxs = points.max(axis=0)
+    centers = (mins + maxs) / 2.0
+    radius = float(np.max(maxs - mins) / 2.0)
+    if radius <= 0:
+        radius = 1.0
+    ax.set_xlim(centers[0] - radius, centers[0] + radius)
+    ax.set_ylim(centers[1] - radius, centers[1] + radius)
+    ax.set_zlim(centers[2] - radius, centers[2] + radius)
+    try:
+        ax.set_box_aspect((1, 1, 1))
+    except AttributeError:
+        pass
+
+
+def save_mapped_mesh_3d(
+    output_path: Path,
+    mesh,
+    rows: list[ResultRow],
+    value_getter,
+    title: str,
+    colorbar_label: str,
+    cmap_name: str,
+    vmin: float,
+    vmax: float,
+    view_elev: float,
+    view_azim: float,
+    max_elements: int,
+    minimum_value: float | None = None,
+    axis_points: np.ndarray | None = None,
+) -> int:
+    row_by_id = {row.element_id: row for row in rows}
+    candidate_ids = []
+    for element_id in sorted(set(mesh.elements) & set(row_by_id)):
+        value = float(value_getter(row_by_id[element_id]))
+        if minimum_value is None or value > minimum_value:
+            candidate_ids.append(element_id)
+    render_ids = selected_element_ids(candidate_ids, max_elements)
+    if not render_ids:
+        fig, ax = plt.subplots(figsize=(8, 7), dpi=160)
+        ax.text(0.5, 0.5, "No elements satisfy this visualization filter", ha="center", va="center")
+        ax.set_axis_off()
+        fig.tight_layout()
+        fig.savefig(output_path)
+        plt.close(fig)
+        return 0
+    norm = colors.Normalize(vmin=vmin, vmax=vmax if vmax > vmin else vmin + 1.0)
+    cmap = plt.get_cmap(cmap_name)
+    faces: list[np.ndarray] = []
+    face_colors = []
+    all_points = []
+
+    for element_id in render_ids:
+        coords = np.vstack([mesh.nodes[node_id] for node_id in mesh.elements[element_id]])
+        value = float(value_getter(row_by_id[element_id]))
+        color = cmap(norm(value)) if np.isfinite(value) else (0.82, 0.82, 0.82, 1.0)
+        element_faces = hexahedron_faces(coords)
+        faces.extend(element_faces)
+        face_colors.extend([color] * len(element_faces))
+        all_points.append(coords)
+
+    if not faces:
+        raise ValueError("No renderable finite elements found for final FE mesh visualization")
+
+    points = np.vstack(all_points)
+    fig = plt.figure(figsize=(8, 7), dpi=160)
+    ax = fig.add_subplot(111, projection="3d")
+    collection = Poly3DCollection(
+        faces,
+        facecolors=face_colors,
+        edgecolors=(0.1, 0.1, 0.1, 0.28),
+        linewidths=0.18,
+        alpha=0.92,
+    )
+    ax.add_collection3d(collection)
+    set_axes_equal(ax, axis_points if axis_points is not None else points)
+    ax.view_init(elev=view_elev, azim=view_azim)
+    ax.set_title(title)
+    ax.set_xlabel("x mm")
+    ax.set_ylabel("y mm")
+    ax.set_zlabel("z mm")
+    mappable = cm.ScalarMappable(norm=norm, cmap=cmap)
+    mappable.set_array([])
+    fig.colorbar(mappable, ax=ax, shrink=0.62, pad=0.08, label=colorbar_label)
+    fig.tight_layout()
+    fig.savefig(output_path)
+    plt.close(fig)
+    return len(render_ids)
+
+
 def write_html_report(
     path: Path,
     title: str,
     ct_path: Path,
     mesh_path: Path,
+    mapped_inp_path: Path | None,
     results_path: Path,
     images: dict[str, str],
     rows: list[ResultRow],
     volume_shape: tuple[int, int, int],
     spacing: np.ndarray,
     threshold: float,
+    rendered_elements: int,
 ) -> None:
     bvtv = np.array([row.bvtv for row in rows], dtype=float)
     modulus = np.array([row.youngs_modulus for row in rows], dtype=float)
@@ -301,6 +435,7 @@ def write_html_report(
     <section class="meta">
       <div class="box"><strong>CT volume</strong>{html.escape(str(ct_path))}</div>
       <div class="box"><strong>FE mesh</strong>{html.escape(str(mesh_path))}</div>
+      <div class="box"><strong>Mapped FE input</strong>{html.escape(str(mapped_inp_path)) if mapped_inp_path else "not provided"}</div>
       <div class="box"><strong>Mapping CSV</strong>{html.escape(str(results_path))}</div>
       <div class="box"><strong>Volume shape</strong>{volume_shape}</div>
       <div class="box"><strong>Voxel spacing mm</strong>{spacing[0]:.4g}, {spacing[1]:.4g}, {spacing[2]:.4g}</div>
@@ -315,6 +450,7 @@ def write_html_report(
       <div class="box"><strong>Full BV/TV elements</strong>{full}</div>
       <div class="box"><strong>Young modulus min max MPa</strong>{np.nanmin(finite_modulus):.2f} / {np.nanmax(finite_modulus):.2f}</div>
       <div class="box"><strong>Sample voxels min max</strong>{int(sample_voxels.min())} / {int(sample_voxels.max())}</div>
+      <div class="box"><strong>Rendered FE elements</strong>{rendered_elements}</div>
     </section>
 
     <h2>Input CT Slices</h2>
@@ -346,6 +482,15 @@ def write_html_report(
       {img_tag("hist_modulus", "Young modulus histogram")}
     </section>
 
+    <h2>Final Mapped FE Mesh</h2>
+    <p>The final Abaqus input combines the FE mesh with element-wise material and section assignments derived from the CT BV/TV mapping.</p>
+    <section class="grid">
+      {img_tag("mesh_bvtv_3d", "Final FE mesh colored by BV/TV")}
+      {img_tag("mesh_positive_bvtv_3d", "Final FE mesh elements with positive BV/TV")}
+      {img_tag("mesh_bvtv_3d_alt", "Final FE mesh colored by BV/TV, alternate view")}
+      {img_tag("mesh_modulus_3d", "Final FE mesh colored by Young modulus")}
+    </section>
+
     <h2>Highest BV/TV Elements</h2>
     <table>
       <thead><tr><th>Element</th><th>BV/TV</th><th>E MPa</th><th>Sample voxels</th></tr></thead>
@@ -362,24 +507,36 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Create an HTML report for CT-to-FE BV/TV results.")
     parser.add_argument("--ct", required=True, help="Input CT volume, .nii or .nii.gz")
     parser.add_argument("--mesh", required=True, help="Input Abaqus .inp mesh")
+    parser.add_argument("--mapped-inp", help="Final mapped Abaqus .inp file to reference in the report")
     parser.add_argument("--results", required=True, help="CSV output from map_bvtv_to_fe.py")
     parser.add_argument("--out-dir", required=True, help="Output directory for report and PNG assets")
     parser.add_argument("--title", default="CT-to-FE BV/TV Visual Report", help="Report title")
     parser.add_argument("--slice-tolerance", type=float, default=3.0, help="Overlay tolerance in voxel units")
     parser.add_argument("--window-min", type=float, default=None, help="CT display window minimum")
     parser.add_argument("--window-max", type=float, default=None, help="CT display window maximum")
+    parser.add_argument(
+        "--max-elements-rendered",
+        type=int,
+        default=5000,
+        help="Maximum FE elements rendered in final mesh PNGs; large meshes are sub-sampled deterministically",
+    )
     return parser
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_arg_parser().parse_args(argv)
+    if args.max_elements_rendered <= 0:
+        raise ValueError("--max-elements-rendered must be positive")
     out_dir = Path(args.out_dir)
     assets_dir = out_dir / "assets"
     assets_dir.mkdir(parents=True, exist_ok=True)
 
     volume = read_nifti(args.ct)
-    parse_abaqus_inp(args.mesh)
+    mesh = parse_abaqus_inp(args.mesh)
     rows = read_results(args.results)
+    mapped_inp_path = Path(args.mapped_inp) if args.mapped_inp else Path(args.results).with_suffix(".mapped.inp")
+    if not mapped_inp_path.exists():
+        mapped_inp_path = None
     threshold = rows[0].threshold
     mask, _ = segment_volume(volume.data, threshold=threshold, bone_is_high=True)
 
@@ -446,9 +603,76 @@ def main(argv: list[str] | None = None) -> int:
         "Young modulus distribution",
         "E (MPa)",
     )
+    mesh_points = np.vstack(list(mesh.nodes.values()))
+    rendered_bvtv = save_mapped_mesh_3d(
+        assets_dir / "mapped_fe_bvtv_3d.png",
+        mesh,
+        rows,
+        lambda row: row.bvtv,
+        "Final mapped FE mesh by BV/TV",
+        "BV/TV",
+        "viridis",
+        0.0,
+        1.0,
+        view_elev=24.0,
+        view_azim=-52.0,
+        max_elements=args.max_elements_rendered,
+        axis_points=mesh_points,
+    )
+    save_mapped_mesh_3d(
+        assets_dir / "mapped_fe_positive_bvtv_3d.png",
+        mesh,
+        rows,
+        lambda row: row.bvtv,
+        "Final mapped FE mesh, positive BV/TV elements",
+        "BV/TV",
+        "viridis",
+        0.0,
+        1.0,
+        view_elev=24.0,
+        view_azim=-52.0,
+        max_elements=args.max_elements_rendered,
+        minimum_value=0.0,
+        axis_points=mesh_points,
+    )
+    save_mapped_mesh_3d(
+        assets_dir / "mapped_fe_bvtv_3d_alt.png",
+        mesh,
+        rows,
+        lambda row: row.bvtv,
+        "Final mapped FE mesh by BV/TV",
+        "BV/TV",
+        "viridis",
+        0.0,
+        1.0,
+        view_elev=18.0,
+        view_azim=38.0,
+        max_elements=args.max_elements_rendered,
+        axis_points=mesh_points,
+    )
+    finite_modulus = modulus[np.isfinite(modulus)]
+    save_mapped_mesh_3d(
+        assets_dir / "mapped_fe_modulus_3d.png",
+        mesh,
+        rows,
+        lambda row: row.youngs_modulus,
+        "Final mapped FE mesh by Young modulus",
+        "E (MPa)",
+        "magma",
+        float(np.nanmin(finite_modulus)),
+        float(np.nanmax(finite_modulus)),
+        view_elev=24.0,
+        view_azim=-52.0,
+        max_elements=args.max_elements_rendered,
+        axis_points=mesh_points,
+    )
     images["scatter3d"] = "assets/bvtv_3d_scatter.png"
     images["hist_bvtv"] = "assets/bvtv_histogram.png"
     images["hist_modulus"] = "assets/youngs_modulus_histogram.png"
+    images["mesh_bvtv_3d"] = "assets/mapped_fe_bvtv_3d.png"
+    images["mesh_positive_bvtv_3d"] = "assets/mapped_fe_positive_bvtv_3d.png"
+    images["mesh_bvtv_3d_alt"] = "assets/mapped_fe_bvtv_3d_alt.png"
+    images["mesh_modulus_3d"] = "assets/mapped_fe_modulus_3d.png"
 
     report_path = out_dir / "report.html"
     write_html_report(
@@ -456,12 +680,14 @@ def main(argv: list[str] | None = None) -> int:
         args.title,
         Path(args.ct),
         Path(args.mesh),
+        mapped_inp_path,
         Path(args.results),
         images,
         rows,
         volume.data.shape,
         volume.spacing,
         threshold,
+        rendered_bvtv,
     )
 
     print(f"Wrote report: {report_path}")

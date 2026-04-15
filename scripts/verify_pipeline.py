@@ -97,6 +97,31 @@ def verify_peri_implant_output(path: Path) -> str:
     return f"peri-implant output is valid (BV/TV={bvtv:.6g}, sample_voxels={sample_voxels})"
 
 
+def verify_visualization_output(name: str, directory: Path) -> list[str]:
+    report = directory / "report.html"
+    assets = directory / "assets"
+    required_assets = [
+        assets / "mapped_fe_bvtv_3d.png",
+        assets / "mapped_fe_positive_bvtv_3d.png",
+        assets / "mapped_fe_bvtv_3d_alt.png",
+        assets / "mapped_fe_modulus_3d.png",
+    ]
+    if not report.exists():
+        raise AssertionError(f"{name}: missing visual report: {report}")
+    report_text = report.read_text(encoding="utf-8")
+    if "Final Mapped FE Mesh" not in report_text:
+        raise AssertionError(f"{name}: visual report is missing the final mapped FE mesh section")
+    for asset in required_assets:
+        if not asset.exists():
+            raise AssertionError(f"{name}: missing final FE mesh visualization asset: {asset}")
+        if asset.stat().st_size <= 0:
+            raise AssertionError(f"{name}: empty final FE mesh visualization asset: {asset}")
+    return [
+        f"{name}: visual report contains the final mapped FE mesh section",
+        f"{name}: final FE mesh BV/TV and modulus visualization assets exist",
+    ]
+
+
 def parse_material_elastic_values(path: Path) -> dict[int, float]:
     values: dict[int, float] = {}
     current_element: int | None = None
@@ -433,6 +458,8 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--materials-registered", default="outputs/demo_abdomen_bvtv_registered.materials.inp")
     parser.add_argument("--mapped-registered", default="outputs/demo_abdomen_bvtv_registered.mapped.inp")
     parser.add_argument("--peri-implant", default="outputs/demo_peri_implant_bvtv.csv")
+    parser.add_argument("--visualization-300", default="outputs/visualization_300")
+    parser.add_argument("--visualization-otsu", default="outputs/visualization_otsu")
     parser.add_argument("--report", default="outputs/verification_report.md")
     return parser
 
@@ -477,6 +504,10 @@ def main(argv: list[str] | None = None) -> int:
         )
     if Path(args.peri_implant).exists():
         messages.append(verify_peri_implant_output(Path(args.peri_implant)))
+    if Path(args.visualization_300).exists():
+        messages.extend(verify_visualization_output("visualization-threshold-300", Path(args.visualization_300)))
+    if Path(args.visualization_otsu).exists():
+        messages.extend(verify_visualization_output("visualization-otsu", Path(args.visualization_otsu)))
     write_report(Path(args.report), messages)
     for message in messages:
         print(f"PASS: {message}")
