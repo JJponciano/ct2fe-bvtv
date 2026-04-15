@@ -87,11 +87,25 @@ def plane_label(axis: int) -> str:
     return {0: "sagittal", 1: "coronal", 2: "axial"}[axis]
 
 
-def representative_slice(points_ijk: np.ndarray, axis: int, shape: tuple[int, int, int]) -> int:
+def representative_slice(
+    points_ijk: np.ndarray,
+    axis: int,
+    shape: tuple[int, int, int],
+    bvtv: np.ndarray | None = None,
+) -> int:
     values = points_ijk[:, axis]
-    values = values[np.isfinite(values)]
-    if values.size == 0:
+    finite = np.isfinite(values)
+    if not np.any(finite):
         return shape[axis] // 2
+
+    if bvtv is not None:
+        positive = finite & np.isfinite(bvtv) & (bvtv > 0.0)
+        if np.any(positive):
+            rounded = np.clip(np.round(values[positive]).astype(int), 0, shape[axis] - 1)
+            scores = np.bincount(rounded, weights=bvtv[positive], minlength=shape[axis])
+            return int(np.argmax(scores))
+
+    values = values[finite]
     median = np.nanmedian(values)
     nearest = values[np.argmin(np.abs(values - median))]
     return int(np.clip(round(float(nearest)), 0, shape[axis] - 1))
@@ -143,22 +157,37 @@ def save_overlay(
     image = normalize_image(slice_for_axis(data, axis, index), vmin=vmin, vmax=vmax)
     x, y, z = projection_for_axis(points_ijk, axis)
     keep = np.abs(z - index) <= slice_tolerance
+    zero = keep & np.isfinite(bvtv) & (bvtv <= 0.0)
+    positive = keep & np.isfinite(bvtv) & (bvtv > 0.0)
 
     fig, ax = plt.subplots(figsize=(6, 6), dpi=150)
     ax.imshow(image, cmap="gray", origin="lower")
-    if np.any(keep):
+    if np.any(zero):
+        ax.scatter(
+            x[zero],
+            y[zero],
+            c="#d0d0d0",
+            s=16,
+            edgecolors="#4d4d4d",
+            linewidths=0.25,
+            alpha=0.55,
+            label="BV/TV = 0",
+        )
+    if np.any(positive):
         scatter = ax.scatter(
-            x[keep],
-            y[keep],
-            c=bvtv[keep],
+            x[positive],
+            y[positive],
+            c=bvtv[positive],
             cmap="viridis",
             vmin=0.0,
             vmax=1.0,
-            s=34,
+            s=46,
             edgecolors="white",
-            linewidths=0.35,
+            linewidths=0.45,
         )
         fig.colorbar(scatter, ax=ax, fraction=0.046, pad=0.04, label="BV/TV")
+    if np.any(zero):
+        ax.legend(loc="lower right", fontsize=8, frameon=True)
     ax.set_title(title)
     ax.set_xlabel("voxel index")
     ax.set_ylabel("voxel index")
@@ -303,6 +332,7 @@ def write_html_report(
     </section>
 
     <h2>Mapped Output On CT</h2>
+    <p>Grey markers indicate nearby sampled FE element centroids with BV/TV = 0. Colored markers indicate positive BV/TV values.</p>
     <section class="grid">
       {img_tag("overlay_axial", "Element centroids near axial slice colored by BV/TV")}
       {img_tag("overlay_coronal", "Element centroids near coronal slice colored by BV/TV")}
@@ -365,9 +395,9 @@ def main(argv: list[str] | None = None) -> int:
     vmax = float(args.window_max) if args.window_max is not None else float(np.percentile(finite, 99.5))
 
     slice_indices = {
-        0: representative_slice(points_ijk, 0, volume.data.shape),
-        1: representative_slice(points_ijk, 1, volume.data.shape),
-        2: representative_slice(points_ijk, 2, volume.data.shape),
+        0: representative_slice(points_ijk, 0, volume.data.shape, bvtv=bvtv),
+        1: representative_slice(points_ijk, 1, volume.data.shape, bvtv=bvtv),
+        2: representative_slice(points_ijk, 2, volume.data.shape, bvtv=bvtv),
     }
 
     images: dict[str, str] = {}
