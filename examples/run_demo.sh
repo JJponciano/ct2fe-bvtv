@@ -6,7 +6,7 @@ python3 scripts/download_demo_data.py
 python3 scripts/make_demo_inp.py \
   --ct data/CT_Abdo.nii.gz \
   --out data/demo_abdomen_mesh.inp \
-  --elements 8,8,6 \
+  --elements 16,12,16 \
   --anchor-threshold 300 \
   --padding-voxels 4
 

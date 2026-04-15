@@ -79,7 +79,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Create a small demo Abaqus mesh in the high-density CT region.")
     parser.add_argument("--ct", required=True, help="Input CT volume, .nii or .nii.gz")
     parser.add_argument("--out", required=True, help="Output Abaqus .inp path")
-    parser.add_argument("--elements", default="8,8,6", help="Element counts as nx,ny,nz")
+    parser.add_argument("--elements", default="16,12,16", help="Element counts as nx,ny,nz")
     parser.add_argument("--anchor-threshold", type=float, default=300.0, help="Voxel threshold used to find dense tissue")
     parser.add_argument("--padding-voxels", type=float, default=4.0, help="Padding around detected dense-tissue bbox")
     return parser
@@ -89,7 +89,7 @@ def main(argv: list[str] | None = None) -> int:
     args = build_arg_parser().parse_args(argv)
     counts = tuple(int(part) for part in args.elements.split(","))
     if len(counts) != 3 or any(value <= 0 for value in counts):
-        raise ValueError("--elements must be three positive integers, e.g. 8,8,6")
+        raise ValueError("--elements must be three positive integers, e.g. 16,12,16")
 
     volume = read_nifti(args.ct)
     mask = volume.data >= args.anchor_threshold

@@ -6,24 +6,24 @@
 - PASS: Anisotropic affine sphere test passed
 - PASS: Rigid landmark registration test passed
 - PASS: Peri-implant hollow-cylinder BV/TV test passed
-- PASS: threshold-300: row count matches mesh elements (384)
-- PASS: threshold-300: Abaqus material count matches CSV rows (384)
-- PASS: threshold-300: self-contained mapped Abaqus input contains the source FE mesh (384 elements)
-- PASS: threshold-300: self-contained mapped Abaqus input material sections match the material include (384 sections)
+- PASS: threshold-300: row count matches mesh elements (3072)
+- PASS: threshold-300: Abaqus material count matches CSV rows (3072)
+- PASS: threshold-300: self-contained mapped Abaqus input contains the source FE mesh (3072 elements)
+- PASS: threshold-300: self-contained mapped Abaqus input material sections match the material include (3072 sections)
 - PASS: threshold-300: threshold is consistent (300)
 - PASS: threshold-300: BV/TV range, sampled voxel counts, nu, E formula, and Abaqus modulus all pass
 - PASS: threshold-300: selected elements recompute exactly from CT and mesh
-- PASS: otsu: row count matches mesh elements (384)
-- PASS: otsu: Abaqus material count matches CSV rows (384)
-- PASS: otsu: self-contained mapped Abaqus input contains the source FE mesh (384 elements)
-- PASS: otsu: self-contained mapped Abaqus input material sections match the material include (384 sections)
+- PASS: otsu: row count matches mesh elements (3072)
+- PASS: otsu: Abaqus material count matches CSV rows (3072)
+- PASS: otsu: self-contained mapped Abaqus input contains the source FE mesh (3072 elements)
+- PASS: otsu: self-contained mapped Abaqus input material sections match the material include (3072 sections)
 - PASS: otsu: threshold is consistent (-441.004)
 - PASS: otsu: BV/TV range, sampled voxel counts, nu, E formula, and Abaqus modulus all pass
 - PASS: otsu: selected elements recompute exactly from CT and mesh
-- PASS: registered-threshold-300: row count matches mesh elements (384)
-- PASS: registered-threshold-300: Abaqus material count matches CSV rows (384)
-- PASS: registered-threshold-300: self-contained mapped Abaqus input contains the source FE mesh (384 elements)
-- PASS: registered-threshold-300: self-contained mapped Abaqus input material sections match the material include (384 sections)
+- PASS: registered-threshold-300: row count matches mesh elements (3072)
+- PASS: registered-threshold-300: Abaqus material count matches CSV rows (3072)
+- PASS: registered-threshold-300: self-contained mapped Abaqus input contains the source FE mesh (3072 elements)
+- PASS: registered-threshold-300: self-contained mapped Abaqus input material sections match the material include (3072 sections)
 - PASS: registered-threshold-300: threshold is consistent (300)
 - PASS: registered-threshold-300: BV/TV range, sampled voxel counts, nu, E formula, and Abaqus modulus all pass
 - PASS: registered-threshold-300: selected elements recompute exactly from CT and mesh

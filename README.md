@@ -183,7 +183,7 @@ The demonstration CT is a public low-resolution abdominal CT image from the NiiV
 python3 scripts/make_demo_inp.py \
   --ct data/CT_Abdo.nii.gz \
   --out data/demo_abdomen_mesh.inp \
-  --elements 8,8,6 \
+  --elements 16,12,16 \
   --anchor-threshold 300 \
   --padding-voxels 4
 ```
@@ -194,7 +194,9 @@ Expected output:
 data/demo_abdomen_mesh.inp
 ```
 
-This file is a regular Abaqus C3D8 mesh generated in the CT coordinate system.
+This file is a regular Abaqus C3D8 mesh generated in the CT coordinate system. The demonstration uses `16 x 12 x 16` elements to make the final mapped FE mesh easier to inspect while keeping the run time moderate.
+
+To generate a finer visual demonstration, increase `--elements`, for example `24,18,24`. Higher values produce smaller FE elements and smoother-looking mapped outputs, but also increase CSV size, Abaqus input size, and run time.
 
 ### 3. Map BV/TV With A Fixed Threshold
 
