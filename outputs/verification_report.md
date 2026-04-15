@@ -8,16 +8,22 @@
 - PASS: Peri-implant hollow-cylinder BV/TV test passed
 - PASS: threshold-300: row count matches mesh elements (384)
 - PASS: threshold-300: Abaqus material count matches CSV rows (384)
+- PASS: threshold-300: self-contained mapped Abaqus input contains the source FE mesh (384 elements)
+- PASS: threshold-300: self-contained mapped Abaqus input material sections match the material include (384 sections)
 - PASS: threshold-300: threshold is consistent (300)
 - PASS: threshold-300: BV/TV range, sampled voxel counts, nu, E formula, and Abaqus modulus all pass
 - PASS: threshold-300: selected elements recompute exactly from CT and mesh
 - PASS: otsu: row count matches mesh elements (384)
 - PASS: otsu: Abaqus material count matches CSV rows (384)
+- PASS: otsu: self-contained mapped Abaqus input contains the source FE mesh (384 elements)
+- PASS: otsu: self-contained mapped Abaqus input material sections match the material include (384 sections)
 - PASS: otsu: threshold is consistent (-441.004)
 - PASS: otsu: BV/TV range, sampled voxel counts, nu, E formula, and Abaqus modulus all pass
 - PASS: otsu: selected elements recompute exactly from CT and mesh
 - PASS: registered-threshold-300: row count matches mesh elements (384)
 - PASS: registered-threshold-300: Abaqus material count matches CSV rows (384)
+- PASS: registered-threshold-300: self-contained mapped Abaqus input contains the source FE mesh (384 elements)
+- PASS: registered-threshold-300: self-contained mapped Abaqus input material sections match the material include (384 sections)
 - PASS: registered-threshold-300: threshold is consistent (300)
 - PASS: registered-threshold-300: BV/TV range, sampled voxel counts, nu, E formula, and Abaqus modulus all pass
 - PASS: registered-threshold-300: selected elements recompute exactly from CT and mesh
@@ -30,6 +36,7 @@
 - PASS: The default sampling sphere diameter is 1.25 mm, matching the article.
 - PASS: The elastic relation uses the article constants E0 = 8534.64 MPa, k = 1.63, and nu = 0.246.
 - PASS: Optional rigid landmark registration is implemented for mapping mesh coordinates into CT/world coordinates.
+- PASS: Self-contained mapped Abaqus input files are generated and verified to contain the source FE mesh plus element-wise material sections.
 - PASS: Article-style peri-implant BV/TV in a 1 mm hollow cylindrical shell can be computed from an implant/pilot-hole centerline.
 - LIMITATION: The demo data are public clinical abdomen CT data, not the article's 24.6 micrometer jawbone micro-CT scans.
 - LIMITATION: The demo mesh is a generated regular Abaqus grid, not the article's dental implant/jawbone geometry.

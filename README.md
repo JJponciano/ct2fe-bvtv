@@ -10,7 +10,7 @@ The implementation is inspired by the material mapping procedure described in th
 - registering an FE mesh to a CT coordinate system;
 - computing element-wise local `BV/TV` from segmented CT voxels;
 - converting `BV/TV` values into elastic material properties;
-- exporting tabular and Abaqus-compatible material assignment files;
+- exporting tabular results, Abaqus material assignment files, and self-contained mapped Abaqus input files;
 - visualizing input CT data, segmentation, FE element locations, and mapped output values;
 - computing an article-style peri-implant `BV/TV` value in a hollow cylindrical region.
 
@@ -31,7 +31,7 @@ Citation of this implementation is required for academic, scientific, educationa
 The repository implements the preprocessing part of the workflow:
 
 ```text
-CT volume -> segmentation -> CT/FE registration -> element-wise BV/TV -> FE material export
+CT volume -> segmentation -> CT/FE registration -> element-wise BV/TV -> mapped FE input export
 ```
 
 The default material mapping follows the relation reported in the article:
@@ -70,10 +70,13 @@ The default local mapping sphere diameter is `1.25 mm`, matching the article. Th
 │   ├── README.md
 │   ├── demo_abdomen_bvtv.csv
 │   ├── demo_abdomen_bvtv.materials.inp
+│   ├── demo_abdomen_bvtv.mapped.inp
 │   ├── demo_abdomen_bvtv_otsu.csv
 │   ├── demo_abdomen_bvtv_otsu.materials.inp
+│   ├── demo_abdomen_bvtv_otsu.mapped.inp
 │   ├── demo_abdomen_bvtv_registered.csv
 │   ├── demo_abdomen_bvtv_registered.materials.inp
+│   ├── demo_abdomen_bvtv_registered.mapped.inp
 │   ├── demo_peri_implant_bvtv.csv
 │   ├── verification_report.md
 │   ├── visualization_300/
@@ -90,7 +93,7 @@ The default local mapping sphere diameter is `1.25 mm`, matching the article. Th
 
 ## Component Roles
 
-- `scripts/map_bvtv_to_fe.py`: main pipeline. Reads CT data and an Abaqus mesh, computes element-wise `BV/TV`, writes CSV and Abaqus material include files, and optionally computes peri-implant `BV/TV`.
+- `scripts/map_bvtv_to_fe.py`: main pipeline. Reads CT data and an Abaqus mesh, computes element-wise `BV/TV`, writes CSV, Abaqus material include files, self-contained mapped Abaqus input files, and optionally computes peri-implant `BV/TV`.
 - `scripts/make_demo_inp.py`: creates a regular Abaqus C3D8 demonstration mesh in the CT coordinate system.
 - `scripts/visualize_bvtv.py`: creates HTML/PNG reports showing CT slices, segmentation, mapped FE element centroids, histograms, and 3D centroid plots.
 - `scripts/verify_pipeline.py`: performs deterministic verification checks on synthetic cases and demonstration outputs.
@@ -205,6 +208,7 @@ Expected outputs:
 ```text
 outputs/demo_abdomen_bvtv.csv
 outputs/demo_abdomen_bvtv.materials.inp
+outputs/demo_abdomen_bvtv.mapped.inp
 ```
 
 ### 4. Map BV/TV With Otsu Thresholding
@@ -223,6 +227,7 @@ Expected outputs:
 ```text
 outputs/demo_abdomen_bvtv_otsu.csv
 outputs/demo_abdomen_bvtv_otsu.materials.inp
+outputs/demo_abdomen_bvtv_otsu.mapped.inp
 ```
 
 ### 5. Use Registration Landmarks
@@ -254,6 +259,14 @@ Alternatively, provide a 4x4 transform:
 
 ```bash
 --transform-json examples/transform_template.json
+```
+
+Expected outputs:
+
+```text
+outputs/demo_abdomen_bvtv_registered.csv
+outputs/demo_abdomen_bvtv_registered.materials.inp
+outputs/demo_abdomen_bvtv_registered.mapped.inp
 ```
 
 ### 6. Compute Peri-Implant BV/TV
@@ -316,6 +329,7 @@ The verification script checks:
 - `BV/TV` range `[0, 1]`;
 - material relation `E = 8534.64 * BV/TV^1.63`;
 - Abaqus material export consistency;
+- self-contained mapped Abaqus input consistency;
 - selected element recomputation from CT and mesh.
 
 ## Expected Data Flow
@@ -342,7 +356,7 @@ Element-wise BV/TV
 Material relation
     |
     v
-CSV output + Abaqus material include + visualization report
+CSV output + Abaqus material include + self-contained mapped Abaqus input + visualization report
 ```
 
 ## Expected Input Formats
@@ -405,6 +419,7 @@ No random seed is required because the pipeline is deterministic.
 - The CT reader currently supports NIfTI-1 files only.
 - The mesh reader currently supports basic Abaqus `.inp` `*Node` and `*Element` blocks.
 - The Abaqus export creates per-element elastic material definitions. It does not create a complete simulation model.
+- The self-contained `.mapped.inp` output combines the input mesh with the generated material sections for simple Abaqus input files. Complex `*Part`/`*Assembly` models may require placing the material include at the correct Abaqus scope.
 - Large micro-CT volumes may require memory optimization beyond the current implementation.
 - Registration is rigid by default. Optional uniform scaling can be enabled, but deformable registration is not implemented.
 

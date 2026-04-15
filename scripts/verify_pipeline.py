@@ -117,6 +117,45 @@ def parse_material_elastic_values(path: Path) -> dict[int, float]:
     return values
 
 
+def verify_mapped_inp_output(name: str, mapped_path: Path, source_mesh: Mesh, material_values: dict[int, float]) -> list[str]:
+    if not mapped_path.exists():
+        raise AssertionError(f"{name}: mapped Abaqus input file does not exist: {mapped_path}")
+
+    text = mapped_path.read_text(encoding="utf-8")
+    lower_text = text.lower()
+    required_keywords = ["*node", "*element", "*material", "*elastic", "*solid section"]
+    for keyword in required_keywords:
+        if keyword not in lower_text:
+            raise AssertionError(f"{name}: mapped Abaqus input is missing {keyword}")
+    if "self-contained bv/tv-mapped abaqus input" not in lower_text:
+        raise AssertionError(f"{name}: mapped Abaqus input is missing the generated-file header")
+
+    mapped_mesh = parse_abaqus_inp(mapped_path)
+    if set(mapped_mesh.nodes) != set(source_mesh.nodes):
+        raise AssertionError(f"{name}: mapped Abaqus input node IDs do not match the source mesh")
+    if set(mapped_mesh.elements) != set(source_mesh.elements):
+        raise AssertionError(f"{name}: mapped Abaqus input element IDs do not match the source mesh")
+    for element_id, node_ids in source_mesh.elements.items():
+        if mapped_mesh.elements[element_id] != node_ids:
+            raise AssertionError(f"{name}: mapped Abaqus input changed connectivity for element {element_id}")
+
+    mapped_material_values = parse_material_elastic_values(mapped_path)
+    if set(mapped_material_values) != set(material_values):
+        raise AssertionError(f"{name}: mapped Abaqus input material element IDs do not match the material include")
+    for element_id, expected_modulus in material_values.items():
+        assert_close(
+            mapped_material_values[element_id],
+            expected_modulus,
+            5e-5,
+            f"{name}: mapped Abaqus input element {element_id} modulus",
+        )
+
+    return [
+        f"{name}: self-contained mapped Abaqus input contains the source FE mesh ({len(source_mesh.elements)} elements)",
+        f"{name}: self-contained mapped Abaqus input material sections match the material include ({len(material_values)} sections)",
+    ]
+
+
 def brute_force_expected_bvtv(volume: Volume, center_world: np.ndarray, radius_mm: float, threshold: float) -> float:
     mask, _ = segment_volume(volume.data, threshold=threshold)
     indices = np.indices(volume.data.shape).reshape(3, -1)
@@ -268,7 +307,15 @@ def run_synthetic_checks() -> list[str]:
     return messages
 
 
-def verify_output_set(name: str, ct_path: Path, mesh_path: Path, csv_path: Path, material_path: Path, threshold_mode: str) -> list[str]:
+def verify_output_set(
+    name: str,
+    ct_path: Path,
+    mesh_path: Path,
+    csv_path: Path,
+    material_path: Path,
+    mapped_path: Path | None,
+    threshold_mode: str,
+) -> list[str]:
     messages: list[str] = []
     volume = read_nifti(ct_path)
     mesh = parse_abaqus_inp(mesh_path)
@@ -282,6 +329,9 @@ def verify_output_set(name: str, ct_path: Path, mesh_path: Path, csv_path: Path,
     if len(material_values) != len(rows):
         raise AssertionError(f"{name}: material count={len(material_values)} but CSV rows={len(rows)}")
     messages.append(f"{name}: Abaqus material count matches CSV rows ({len(material_values)})")
+
+    if mapped_path is not None:
+        messages.extend(verify_mapped_inp_output(name, mapped_path, mesh, material_values))
 
     thresholds = np.array([row.threshold for row in rows], dtype=float)
     if np.nanmax(np.abs(thresholds - thresholds[0])) > 1e-9:
@@ -353,6 +403,7 @@ def write_report(path: Path, messages: list[str]) -> None:
             "- PASS: The default sampling sphere diameter is 1.25 mm, matching the article.",
             "- PASS: The elastic relation uses the article constants E0 = 8534.64 MPa, k = 1.63, and nu = 0.246.",
             "- PASS: Optional rigid landmark registration is implemented for mapping mesh coordinates into CT/world coordinates.",
+            "- PASS: Self-contained mapped Abaqus input files are generated and verified to contain the source FE mesh plus element-wise material sections.",
             "- PASS: Article-style peri-implant BV/TV in a 1 mm hollow cylindrical shell can be computed from an implant/pilot-hole centerline.",
             "- LIMITATION: The demo data are public clinical abdomen CT data, not the article's 24.6 micrometer jawbone micro-CT scans.",
             "- LIMITATION: The demo mesh is a generated regular Abaqus grid, not the article's dental implant/jawbone geometry.",
@@ -374,10 +425,13 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--mesh", default="data/demo_abdomen_mesh.inp")
     parser.add_argument("--csv-300", default="outputs/demo_abdomen_bvtv.csv")
     parser.add_argument("--materials-300", default="outputs/demo_abdomen_bvtv.materials.inp")
+    parser.add_argument("--mapped-300", default="outputs/demo_abdomen_bvtv.mapped.inp")
     parser.add_argument("--csv-otsu", default="outputs/demo_abdomen_bvtv_otsu.csv")
     parser.add_argument("--materials-otsu", default="outputs/demo_abdomen_bvtv_otsu.materials.inp")
+    parser.add_argument("--mapped-otsu", default="outputs/demo_abdomen_bvtv_otsu.mapped.inp")
     parser.add_argument("--csv-registered", default="outputs/demo_abdomen_bvtv_registered.csv")
     parser.add_argument("--materials-registered", default="outputs/demo_abdomen_bvtv_registered.materials.inp")
+    parser.add_argument("--mapped-registered", default="outputs/demo_abdomen_bvtv_registered.mapped.inp")
     parser.add_argument("--peri-implant", default="outputs/demo_peri_implant_bvtv.csv")
     parser.add_argument("--report", default="outputs/verification_report.md")
     return parser
@@ -394,6 +448,7 @@ def main(argv: list[str] | None = None) -> int:
             Path(args.mesh),
             Path(args.csv_300),
             Path(args.materials_300),
+            Path(args.mapped_300),
             "300",
         )
     )
@@ -404,6 +459,7 @@ def main(argv: list[str] | None = None) -> int:
             Path(args.mesh),
             Path(args.csv_otsu),
             Path(args.materials_otsu),
+            Path(args.mapped_otsu),
             "otsu",
         )
     )
@@ -415,6 +471,7 @@ def main(argv: list[str] | None = None) -> int:
                 Path(args.mesh),
                 Path(args.csv_registered),
                 Path(args.materials_registered),
+                Path(args.mapped_registered),
                 "300",
             )
         )

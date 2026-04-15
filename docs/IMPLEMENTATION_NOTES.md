@@ -24,7 +24,7 @@ E = 8534.64 * (BV/TV)^1.63 MPa
 nu = 0.246
 ```
 
-9. Export CSV and Abaqus material definitions.
+9. Export CSV, Abaqus material definitions, and a self-contained mapped Abaqus input file.
 
 ## Registration
 
@@ -39,6 +39,10 @@ The implementation can compute `BV/TV` in a hollow cylindrical shell around an i
 ## Abaqus Export
 
 The generated `.materials.inp` file contains one element set and one elastic material per element. This is simple and explicit, but it is not the most compact representation for very large meshes.
+
+The generated `.mapped.inp` file combines the original Abaqus mesh with the generated material and section assignments. This gives a concrete mapped FE input file at the end of the preprocessing workflow for simple Abaqus `.inp` meshes.
+
+For complex Abaqus files using `*Part`/`*Assembly` scoping, users should inspect the model and may need to include the generated `.materials.inp` file at the correct location instead of relying on the appended `.mapped.inp` layout.
 
 For large production models, users may prefer to bin `BV/TV` values into material classes or use field variables in Abaqus.
 

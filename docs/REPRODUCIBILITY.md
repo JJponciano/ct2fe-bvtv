@@ -53,10 +53,13 @@ After a successful run, the following files should exist:
 ```text
 outputs/demo_abdomen_bvtv.csv
 outputs/demo_abdomen_bvtv.materials.inp
+outputs/demo_abdomen_bvtv.mapped.inp
 outputs/demo_abdomen_bvtv_otsu.csv
 outputs/demo_abdomen_bvtv_otsu.materials.inp
+outputs/demo_abdomen_bvtv_otsu.mapped.inp
 outputs/demo_abdomen_bvtv_registered.csv
 outputs/demo_abdomen_bvtv_registered.materials.inp
+outputs/demo_abdomen_bvtv_registered.mapped.inp
 outputs/demo_peri_implant_bvtv.csv
 outputs/visualization_300/report.html
 outputs/visualization_otsu/report.html

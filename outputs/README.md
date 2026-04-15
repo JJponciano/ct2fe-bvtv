@@ -8,9 +8,13 @@ The expected generated files include:
 
 - `demo_abdomen_bvtv.csv`: element-wise BV/TV and elastic properties using a fixed 300 HU threshold.
 - `demo_abdomen_bvtv.materials.inp`: Abaqus material include file generated from `demo_abdomen_bvtv.csv`.
+- `demo_abdomen_bvtv.mapped.inp`: self-contained Abaqus input combining the demonstration FE mesh with fixed-threshold BV/TV-derived material sections.
 - `demo_abdomen_bvtv_otsu.csv`: element-wise BV/TV and elastic properties using Otsu thresholding.
 - `demo_abdomen_bvtv_otsu.materials.inp`: Abaqus material include file generated from `demo_abdomen_bvtv_otsu.csv`.
+- `demo_abdomen_bvtv_otsu.mapped.inp`: self-contained Abaqus input combining the demonstration FE mesh with Otsu-threshold BV/TV-derived material sections.
 - `demo_abdomen_bvtv_registered.csv`: same demonstration mapping executed through the registration interface.
+- `demo_abdomen_bvtv_registered.materials.inp`: Abaqus material include file generated from `demo_abdomen_bvtv_registered.csv`.
+- `demo_abdomen_bvtv_registered.mapped.inp`: self-contained Abaqus input generated through the registration interface.
 - `demo_peri_implant_bvtv.csv`: hollow-cylinder peri-implant BV/TV demonstration output.
 - `visualization_300/report.html`: visual report for the fixed-threshold run.
 - `visualization_otsu/report.html`: visual report for the Otsu-threshold run.

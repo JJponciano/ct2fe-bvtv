@@ -77,6 +77,7 @@ The mapper produces:
 
 - element-wise CSV with centroid coordinates, sampled voxel count, `BV/TV`, Young's modulus, Poisson's ratio, and threshold;
 - Abaqus material include file;
+- self-contained mapped Abaqus input file combining the mesh with generated material sections;
 - optional peri-implant `BV/TV` CSV;
 - optional HTML/PNG visualization report.
 
